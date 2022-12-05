@@ -1,12 +1,10 @@
 import axios from "axios"
-import { useEffect, useState, useMemo } from "react"
-import { v4 as uuid } from "uuid"
+import {useEffect, useMemo} from "react"
+import {v4 as uuid} from "uuid"
 import DamageTypes from "./DamageTypes"
 import TypeColor from "./TypeColor"
 
-const PokeStats = ({ search }) => {
-  const [stats, setStats] = useState()
-
+const PokeStats = ({search, stats, setStats}) => {
   // displays pokemon types/strengths/weaknesses.
   const types = useMemo(() => {
     if (stats) {
@@ -15,7 +13,7 @@ const PokeStats = ({ search }) => {
       }
 
       // creates map of current types
-      const currentTypes = stats.types.map(({ type }) => {
+      const currentTypes = stats.types.map(({type}) => {
         return type.name
       })
 
@@ -42,13 +40,34 @@ const PokeStats = ({ search }) => {
             if (DamageTypes[type][damageType].zero.includes(advantageType)) {
               allTypes.splice(index, 1)
             }
+            
+
+            
           })
         })
         return allTypes
       }
 
-      const atkAdvantages = getAdvantage(atkTypesA, atkTypesB, "attack")
-      const defWeaknesses = getAdvantage(defTypesA, defTypesB, "defense")
+
+      const atkAdvantages = Array.from(new Set(getAdvantage(atkTypesA, atkTypesB, "attack")))
+      const defWeaknesses = Array.from(new Set(getAdvantage(defTypesA, defTypesB, "defense")))
+
+      // Matches the type color to what its strong against
+      const handleTypeAdvantageBorder = (defendingType = '', attackingTypeA = '', attackingTypeB = '') => {
+        const colorA = TypeColor[attackingTypeA]
+        const colorB = TypeColor?.[attackingTypeB]
+        const damageGroupA = getAdvantage(atkTypesA, [], "attack")
+        const damageGroupB = getAdvantage([], atkTypesB, "attack")
+
+        if (damageGroupA.some(() => DamageTypes[defendingType]?.['defense'].double.includes(attackingTypeA))) {
+          return colorA;
+        }
+
+        else if (damageGroupB.some(() => DamageTypes[defendingType]?.['defense'].double.includes(attackingTypeB))) {
+          return colorB;
+        }
+      }
+      
 
       return (
         <>
@@ -59,7 +78,7 @@ const PokeStats = ({ search }) => {
                 <h2
                   className="type-stat"
                   key={uuid()}
-                  style={{ background: TypeColor[type] }}
+                  style={{background: TypeColor[type]}}
                 >
                   {type}
                 </h2>
@@ -67,9 +86,8 @@ const PokeStats = ({ search }) => {
             })}
           </div>
 
-          {/* displays current strength types  */}
-
           <div className="strengths_weaknesses-container">
+            {/* displays current strength types  */}
             {atkAdvantages.length ? (
               <>
                 <label>Strong against: </label>
@@ -79,7 +97,10 @@ const PokeStats = ({ search }) => {
                       <h2
                         className="strength-stat"
                         key={uuid()}
-                        style={{ background: TypeColor[atk] }}
+                        style={{
+                          background: TypeColor[atk], 
+                          borderColor: handleTypeAdvantageBorder(atk, currentTypes[0], currentTypes[1]) 
+                        }}
                       >
                         {atk}
                       </h2>
@@ -94,14 +115,14 @@ const PokeStats = ({ search }) => {
             {/* displays current weakness types  */}
             {defWeaknesses.length ? (
               <>
-                <label>weak against: </label>
+                <label>Weak against: </label>
                 <div className="weaknesses">
                   {defWeaknesses.map((weakness) => {
                     return (
                       <h2
                         className="weakness-stat"
                         key={uuid()}
-                        style={{ background: TypeColor[weakness] }}
+                        style={{background: TypeColor[weakness]}}
                       >
                         {weakness}
                       </h2>
@@ -122,7 +143,7 @@ const PokeStats = ({ search }) => {
                       <h2
                         className="immunity-stat"
                         key={uuid()}
-                        style={{ background: TypeColor[immunity] }}
+                        style={{background: TypeColor[immunity]}}
                       >
                         {immunity}
                       </h2>
@@ -155,7 +176,11 @@ const PokeStats = ({ search }) => {
     <div className="stats-container">
       {stats ? (
         <>
-          <img className="sprite" src={stats.sprites.front_default} alt="" />
+          <img
+            className="sprite"
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${stats.id}.png`}
+            alt=''
+          />
           {types}
         </>
       ) : (

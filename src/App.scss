@@ -1,6 +1,7 @@
 body {
   background-color: beige;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -10,14 +11,16 @@ body {
 .top-banner {
   height: 150px;
   background-color: rgba(255, 0, 0, 0.863);
+
   #title {
     display: flex;
     justify-content: center;
     padding-top: 30px;
     font-size: 70px;
-  
+
   }
 }
+
 .search-container {
   display: flex;
   flex-wrap: wrap;
@@ -37,7 +40,7 @@ body {
       font-size: 25px;
     }
   }
- 
+
 }
 
 .stats-container {
@@ -50,11 +53,12 @@ body {
     margin: 28px 0px 0px 0;
   }
 
-  
+
   .types {
     display: flex;
     align-items: center;
-  
+    margin-top: 22px;
+
     .type-stat {
       border: 2px solid;
       padding: 3px 12px;
@@ -67,23 +71,28 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 303px;
-    bottom: 232px;
+    bottom: 273px;
     right: 327px;
     background-color: #aceeff;
     border: 3px solid;
     border-radius: 45px;
     padding: 11px;
 
-    .strengths, .weaknesses, .immunities {
+    .strengths,
+    .weaknesses,
+    .immunities {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
       justify-content: center;
       padding: 10px 0;
-  
+
     }
-    .strength-stat, .weakness-stat, .immunity-stat {
-      border: 2px solid;
+
+    .strength-stat,
+    .weakness-stat,
+    .immunity-stat {
+      border: 4px solid rgba(128, 128, 128, 0.486);
       padding: 3px 12px;
       border-radius: 20px;
     }
@@ -93,5 +102,6 @@ body {
 label {
   font-size: 28px;
   border-bottom: 3px solid;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+  width: 189px;
 }

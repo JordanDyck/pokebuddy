@@ -26,11 +26,19 @@ const GameVersion = ({ setPokemonList }) => {
       axios
         .get(`https://pokeapi.co/api/v2/generation/${generation.value}`)
         .then((res) => {
-          const newGenData = res.data.pokemon_species.map((p) => p.name)
-          setGenData(newGenData)
+          const newGenData = res.data.pokemon_species.map((p) => ({
+            name: p.name,
+            id: p.url.split("species/")[1].replace("/", ""),
+          }))
+          const sortedGenData = [...newGenData].sort((a, b) => a.id - b.id)
+
+          setGenData(sortedGenData.map((p) => p.name))
           // creates a list of all pokemon names in current gen
           setPokemonList(
-            newGenData.map((pokemon) => ({ value: pokemon, label: pokemon }))
+            sortedGenData.map((pokemon) => ({
+              value: parseInt(pokemon.id),
+              label: `${pokemon.name} #${pokemon.id}`,
+            }))
           )
         })
     }

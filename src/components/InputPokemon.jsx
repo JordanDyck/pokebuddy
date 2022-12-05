@@ -5,9 +5,10 @@ import PokeStats from "./PokeStats"
 
 const InputPokemon = () => {
   const [pokemonList, setPokemonList] = useState([])
+  const [stats, setStats] = useState()
   const [search, setSearch] = useState({
-    value: "bulbasaur",
-    label: "bulbasaur",
+    value: 1,
+    label: "bulbasaur #1",
   })
 
   return (
@@ -20,14 +21,14 @@ const InputPokemon = () => {
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,
           }}
-          filterOption={createFilter({ ignoreCase: true, matchFrom: "start" })}
+          filterOption={createFilter({ ignoreCase: true })}
           value={search}
           onChange={setSearch}
         />
         <GameVersion setPokemonList={setPokemonList} />
       </div>
       <div className="stats-wrapper">
-        <PokeStats search={search} />
+        <PokeStats search={search} stats={stats} setStats={setStats} />
       </div>
     </div>
   )
