@@ -28,6 +28,7 @@ const PokeStats = ({search, stats, setStats}) => {
         DamageTypes?.[currentTypes[1]]?.defense?.zero || []
       )
 
+      // filters out conflicting damage/defence types
       const getAdvantage = (groupA, groupB, damageType) => {
         let allTypes = groupA.concat(groupB)
         currentTypes.forEach((type) => {
@@ -40,38 +41,49 @@ const PokeStats = ({search, stats, setStats}) => {
             if (DamageTypes[type][damageType].zero.includes(advantageType)) {
               allTypes.splice(index, 1)
             }
-            
-
-            
           })
         })
         return allTypes
       }
 
-
-      const atkAdvantages = Array.from(new Set(getAdvantage(atkTypesA, atkTypesB, "attack")))
-      const defWeaknesses = Array.from(new Set(getAdvantage(defTypesA, defTypesB, "defense")))
+      const atkAdvantages = Array.from(
+        new Set(getAdvantage(atkTypesA, atkTypesB, "attack"))
+      )
+      const defWeaknesses = Array.from(
+        new Set(getAdvantage(defTypesA, defTypesB, "defense"))
+      )
 
       // Matches the type color to what its strong against
-      const handleTypeAdvantageBorder = (defendingType = '', attackingTypeA = '', attackingTypeB = '') => {
+      const handleTypeAdvantageBorder = (
+        defendingType = "",
+        attackingTypeA = "",
+        attackingTypeB = ""
+      ) => {
         const colorA = TypeColor[attackingTypeA]
         const colorB = TypeColor?.[attackingTypeB]
         const damageGroupA = getAdvantage(atkTypesA, [], "attack")
         const damageGroupB = getAdvantage([], atkTypesB, "attack")
 
-        if (damageGroupA.some(() => DamageTypes[defendingType]?.['defense'].double.includes(attackingTypeA))) {
-          return colorA;
-        }
-
-        else if (damageGroupB.some(() => DamageTypes[defendingType]?.['defense'].double.includes(attackingTypeB))) {
-          return colorB;
+        if (
+          damageGroupA.some(() =>
+            DamageTypes[defendingType]?.["defense"].double.includes(
+              attackingTypeA
+            )
+          )
+        ) {
+          return colorA
+        } else if (
+          damageGroupB.some(() =>
+            DamageTypes[defendingType]?.["defense"].double.includes(
+              attackingTypeB
+            )
+          )
+        ) {
+          return colorB
         }
       }
-      
-
-      return (
-        <>
-          {/* displays current types  */}
+      return {
+        currentType: (
           <div className="types">
             {currentTypes.map((type) => {
               return (
@@ -85,11 +97,15 @@ const PokeStats = ({search, stats, setStats}) => {
               )
             })}
           </div>
-
+        ),
+        advantageWeakness: (
           <div className="strengths_weaknesses-container">
             {/* displays current strength types  */}
             {atkAdvantages.length ? (
               <>
+                <p className="border-info">
+                  *the border represents what type to use against it
+                </p>
                 <label>Strong against: </label>
                 <div className="strengths">
                   {atkAdvantages.map((atk) => {
@@ -98,8 +114,12 @@ const PokeStats = ({search, stats, setStats}) => {
                         className="strength-stat"
                         key={uuid()}
                         style={{
-                          background: TypeColor[atk], 
-                          borderColor: handleTypeAdvantageBorder(atk, currentTypes[0], currentTypes[1]) 
+                          background: TypeColor[atk],
+                          borderColor: handleTypeAdvantageBorder(
+                            atk,
+                            currentTypes[0],
+                            currentTypes[1]
+                          ),
                         }}
                       >
                         {atk}
@@ -155,8 +175,8 @@ const PokeStats = ({search, stats, setStats}) => {
               ""
             )}
           </div>
-        </>
-      )
+        ),
+      }
     } else {
       return ""
     }
@@ -176,12 +196,15 @@ const PokeStats = ({search, stats, setStats}) => {
     <div className="stats-container">
       {stats ? (
         <>
-          <img
-            className="sprite"
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${stats.id}.png`}
-            alt=''
-          />
-          {types}
+          <div className="sprite-wrapper">
+            <img
+              className="sprite"
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${stats.id}.png`}
+              alt=""
+            />
+            {types?.currentType}
+          </div>
+          {types?.advantageWeakness}
         </>
       ) : (
         ""
