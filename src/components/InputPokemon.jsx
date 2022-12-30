@@ -1,7 +1,8 @@
-import { useState } from "react"
-import Select, { createFilter } from "react-select"
+import {useState} from "react"
+import Select, {createFilter} from "react-select"
 import GameVersion from "./GameVersion"
-import PokeStats from "./PokeStats"
+
+import PokeTypes from "./PokeTypes"
 
 const InputPokemon = () => {
   const [pokemonList, setPokemonList] = useState([])
@@ -21,14 +22,14 @@ const InputPokemon = () => {
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,
           }}
-          filterOption={createFilter({ ignoreCase: true })}
+          filterOption={createFilter({ignoreCase: true})}
           value={search}
           onChange={setSearch}
         />
         <GameVersion setPokemonList={setPokemonList} />
       </div>
       <div className="stats-wrapper">
-        <PokeStats search={search} stats={stats} setStats={setStats} />
+        <PokeTypes search={search} stats={stats} setStats={setStats} />
       </div>
     </div>
   )

@@ -44,21 +44,76 @@ body {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  margin-top: 35px;
 
-  .sprite {
-    width: 276px;
-    margin: 28px 0px 0px 0;
+  .sprite-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .sprite {
+      width: 276px;
+      margin: 28px 0px 0px 0;
+    }
+    .types {
+      display: flex;
+      justify-content: center;
+      margin-top: 22px;
+
+      .type-stat {
+        border: 2px solid;
+        padding: 3px 12px;
+        border-radius: 20px;
+      }
+    }
   }
 
-  .types {
+  .base-stats-container {
     display: flex;
-    align-items: center;
-    margin-top: 22px;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 35px;
+    padding-right: 47px;
+    background-color: #aceeff;
+    height: 252px;
+    border: 3px solid;
+    border-radius: 45px;
+    box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
+    gap: 10px;
 
-    .type-stat {
-      border: 2px solid;
-      padding: 3px 12px;
+    .max-bar {
+      width: 255px;
       border-radius: 20px;
+      background-color: white;
+      border: 2px solid #0000002b;
+    }
+
+    .stat {
+      display: flex;
+
+      .stat-bar {
+        display: flex;
+        align-items: center;
+        height: 20px;
+        min-width: 26px;
+        background-color: orange;
+        border-radius: 20px;
+        padding: 2px 0px 2px 0px;
+        border: 1px solid #00000059;
+      }
+    }
+
+    .stat-label {
+      display: flex;
+      align-items: center;
+      margin-left: 24px;
+      width: 88px;
+      font-family: cursive;
+    }
+
+    .stat-number {
+      padding: 0 5px 0 5px;
+      font-family: cursive;
     }
   }
 
@@ -69,9 +124,10 @@ body {
     background-color: #aceeff;
     border: 3px solid;
     border-radius: 45px;
+    box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
     padding: 11px;
 
-    .border-info {
+    .border-info-text {
       position: relative;
       bottom: 33px;
       font-size: 15px;
@@ -102,7 +158,7 @@ body {
   }
 }
 
-label {
+.advantage-label {
   font-size: 28px;
   border-bottom: 3px solid;
   margin-bottom: 6px;
