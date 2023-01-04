@@ -79,7 +79,7 @@ const DamageTypes = {
     },
     defense: {
       half: ["bug", "fairy", "fire", "grass", "ice", "steel"],
-      double: ["bug", "fire", "flying", "ice", "poison"],
+      double: ["water", "ground", "rock"],
       zero: [],
     },
   },

@@ -1,11 +1,17 @@
 import axios from "axios"
 import {useEffect, useMemo} from "react"
 import {v4 as uuid} from "uuid"
+import {useSelector, useDispatch} from "react-redux"
+
+import {setStat} from "../store/slices/statSlice"
 import DamageTypes from "./DamageTypes"
 import PokeStats from "./PokeStats"
 import TypeColor from "./TypeColor"
 
-const PokeTypes = ({search, stats, setStats}) => {
+const PokeTypes = () => {
+  const stats = useSelector((store) => store.stats.value)
+  const search = useSelector((store) => store.search.value)
+  const dispatch = useDispatch()
   // displays pokemon types/strengths/weaknesses.
   const types = useMemo(() => {
     if (stats) {
@@ -17,7 +23,7 @@ const PokeTypes = ({search, stats, setStats}) => {
       const currentTypes = stats.types.map(({type}) => {
         return type.name
       })
-
+      // creates the atk/def for each type.
       let atkTypesA = getDamageGroup(currentTypes[0], "attack", "double") || []
       let atkTypesB =
         getDamageGroup?.(currentTypes?.[1], "attack", "double") || []
@@ -184,11 +190,11 @@ const PokeTypes = ({search, stats, setStats}) => {
   }, [stats])
 
   useEffect(() => {
-    if (stats?.name !== search.value) {
+    if (stats?.name !== search?.value) {
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${search.value}`)
         .then((res) => {
-          setStats(res.data)
+          dispatch(setStat(res.data))
         })
     }
   }, [search])
