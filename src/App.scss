@@ -168,15 +168,40 @@ body {
   width: 189px;
 }
 
-.team-container {
+.btn-container {
   display: flex;
   justify-content: center;
+  .add-to-team-btn {
+    width: 186px;
+    border-radius: 23px;
+    margin: 15px 95px 0 0;
+    padding: 3px;
+    font-size: 25px;
+    cursor: pointer;
+  }
 }
-.add-To-team-btn {
-  width: 186px;
-  border-radius: 23px;
-  margin: 15px 95px 0 0;
-  padding: 3px;
-  font-size: 25px;
-  cursor: pointer;
+
+.team {
+  display: flex;
+  justify-content: center;
+  .team-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 100px 95px 0 0;
+    cursor: pointer;
+
+    .team-sprite {
+      width: 100px;
+    }
+  }
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  .loading-text {
+    font-size: 60px;
+  }
 }

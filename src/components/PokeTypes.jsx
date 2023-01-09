@@ -1,5 +1,5 @@
 import axios from "axios"
-import {useEffect, useMemo} from "react"
+import {useEffect, useMemo, useState} from "react"
 import {v4 as uuid} from "uuid"
 import {useSelector, useDispatch} from "react-redux"
 
@@ -9,9 +9,13 @@ import PokeStats from "./PokeStats"
 import TypeColor from "./TypeColor"
 
 const PokeTypes = () => {
+  //grabs data from store.
   const stats = useSelector((store) => store.stats.value)
   const search = useSelector((store) => store.search.value)
+  // puts data into store
   const dispatch = useDispatch()
+
+  const [loading, setLoading] = useState(true)
   // displays pokemon types/strengths/weaknesses.
   const types = useMemo(() => {
     if (stats) {
@@ -190,14 +194,24 @@ const PokeTypes = () => {
   }, [stats])
 
   useEffect(() => {
+    setLoading(true)
     if (stats?.name !== search?.value) {
       axios
         .get(`https://pokeapi.co/api/v2/pokemon/${search.value}`)
         .then((res) => {
           dispatch(setStat(res.data))
+          setLoading(false)
         })
+        .catch(() => setLoading(false))
     }
   }, [search])
+
+  if (loading)
+    return (
+      <div className="loading">
+        <h1 className="loading-text">loading...</h1>
+      </div>
+    )
 
   return (
     <div className="stats-container">
