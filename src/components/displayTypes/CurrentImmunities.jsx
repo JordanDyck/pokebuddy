@@ -1,8 +1,11 @@
+import {useSelector} from "react-redux"
 import {v4 as uuid} from "uuid"
 
 import TypeColor from "../TypeColor"
 
-const CurrentImmunities = ({immunities}) => {
+const CurrentImmunities = () => {
+  const immunities = useSelector((store) => store.currentTypes.immunity)
+
   return immunities.length ? (
     <>
       <label className="advantage-label">Immune to: </label>

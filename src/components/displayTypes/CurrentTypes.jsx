@@ -1,8 +1,11 @@
+import {useSelector} from "react-redux"
 import {v4 as uuid} from "uuid"
 
 import TypeColor from "../TypeColor"
 
-const CurrentTypes = ({currentTypes}) => {
+const CurrentTypes = () => {
+  const currentTypes = useSelector((store) => store.currentTypes.type)
+
   return currentTypes ? (
     <div className="types">
       {currentTypes.map((type) => {

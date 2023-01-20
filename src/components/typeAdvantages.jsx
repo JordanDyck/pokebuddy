@@ -1,17 +1,24 @@
 import {useMemo} from "react"
-import {useSelector} from "react-redux"
+import {useSelector, useDispatch} from "react-redux"
+import {useEffect} from "react"
 
 import TypeColor from "./TypeColor"
 import DamageTypes from "./DamageTypes"
-// import {setTypes} from "../store/slices/typesSlice"
+import {
+  setTypes,
+  setAttack,
+  setWeakness,
+  setImmunity,
+} from "../store/slices/typesSlice"
 import CurrentWeaknesses from "./displayTypes/CurrentWeaknesses"
 import CurrentStrengths from "./displayTypes/CurrentStrengths"
 import CurrentImmunities from "./displayTypes/CurrentImmunities"
 
 const TypeAdvantages = () => {
   const stats = useSelector((store) => store.stats.value)
-  // const types = useSelector((store) => store.types.value)
-  // const dispatch = useDispatch()
+
+  const dispatch = useDispatch()
+
   const getDamageGroup = (type, damageType, multiplier) => {
     return DamageTypes?.[type]?.[damageType]?.[multiplier]
   }
@@ -97,15 +104,23 @@ const TypeAdvantages = () => {
     }
   }
 
+  useEffect(() => {
+    if (stats) {
+      dispatch(setTypes(currentTypes))
+      dispatch(setAttack(atkAdvantages))
+      dispatch(setWeakness(defWeaknesses))
+      dispatch(setImmunity(immunities))
+    }
+  }, [stats])
+
   return (
     <div className="strengths_weaknesses-container">
       <CurrentStrengths
-        atkAdvantages={atkAdvantages}
         currentTypes={currentTypes}
         handleTypeAdvantageBorder={handleTypeAdvantageBorder}
       />
-      <CurrentWeaknesses defWeaknesses={defWeaknesses} />
-      <CurrentImmunities immunities={immunities} />
+      <CurrentWeaknesses />
+      <CurrentImmunities />
     </div>
   )
 }

@@ -9,6 +9,6 @@ export default configureStore({
     stats: statReducer,
     search: searchReducer,
     team: teamStatReducer,
-    types: typesReducer,
+    currentTypes: typesReducer,
   },
 })

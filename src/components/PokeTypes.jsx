@@ -15,10 +15,6 @@ const PokeTypes = () => {
   // puts data into store
   const dispatch = useDispatch()
 
-  const currentTypes = stats?.types.map(({type}) => {
-    return type.name
-  })
-
   const [loading, setLoading] = useState(true)
 
   // gets and stores data for current pokemon.
@@ -53,7 +49,7 @@ const PokeTypes = () => {
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${stats.id}.png`}
               alt=""
             />
-            <CurrentTypes currentTypes={currentTypes} />
+            <CurrentTypes />
           </div>
 
           <TypeAdvantages />

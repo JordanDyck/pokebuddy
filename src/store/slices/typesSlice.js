@@ -1,22 +1,30 @@
 import {createSlice} from "@reduxjs/toolkit"
 
 export const typesSlice = createSlice({
-  name: "types",
+  name: "currentTypes",
   initialState: {
-    value: {
-      type: "",
-      attack: "",
-      weakness: "",
-      immunity: "",
-    },
+    type: "",
+    attack: "",
+    weakness: "",
+    immunity: "",
   },
   reducers: {
     setTypes: (state, action) => {
-      state.value = action.payload
+      state.type = action.payload
+    },
+    setAttack: (state, action) => {
+      state.attack = action.payload
+    },
+    setWeakness: (state, action) => {
+      state.weakness = action.payload
+    },
+    setImmunity: (state, action) => {
+      state.immunity = action.payload
     },
   },
 })
 
-export const {setTypes} = typesSlice.actions
+export const {setTypes, setAttack, setWeakness, setImmunity} =
+  typesSlice.actions
 
 export default typesSlice.reducer

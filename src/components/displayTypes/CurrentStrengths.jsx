@@ -1,18 +1,17 @@
+import {useSelector} from "react-redux"
 import {v4 as uuid} from "uuid"
 
 import TypeColor from "../TypeColor"
 
-const CurrentStrengths = ({
-  atkAdvantages,
-  currentTypes,
-  handleTypeAdvantageBorder,
-}) => {
+const CurrentStrengths = ({currentTypes, handleTypeAdvantageBorder}) => {
+  const attack = useSelector((store) => store.currentTypes.attack)
+
   // displays current strength types
-  return atkAdvantages.length ? (
+  return attack.length ? (
     <>
       <label className="advantage-label">Strong against: </label>
       <div className="strengths">
-        {atkAdvantages.map((atk) => {
+        {attack.map((atk) => {
           return (
             <h2
               className="strength-stat"
