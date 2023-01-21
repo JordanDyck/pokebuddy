@@ -195,6 +195,15 @@ body {
       width: 100px;
     }
   }
+
+  .delete-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    width: 25px;
+    height: 25px;
+  }
 }
 
 .loading {

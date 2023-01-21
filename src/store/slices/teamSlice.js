@@ -3,18 +3,26 @@ import {createSlice} from "@reduxjs/toolkit"
 export const teamStatSlice = createSlice({
   name: "teamStats",
   initialState: {
-    value: [],
+    value: localStorage.getItem("team")
+      ? JSON.parse(localStorage.getItem("team"))
+      : [],
   },
   reducers: {
     addTeamStat: (state, action) => {
-      state.value = [...state.value, action.payload]
+      const updatedValue = [...state.value, action.payload]
+      state.value = updatedValue
+      localStorage.setItem("team", JSON.stringify(updatedValue))
     },
     removeTeamStat: (state, action) => {
-      // state.value =
+      let stateCopy = [...state.value]
+      const index = stateCopy.indexOf({id: action.payload})
+      stateCopy.splice(index, 1)
+      state.value = stateCopy
+      localStorage.setItem("team", JSON.stringify(stateCopy))
     },
   },
 })
 
-export const {addTeamStat} = teamStatSlice.actions
+export const {addTeamStat, removeTeamStat} = teamStatSlice.actions
 
 export default teamStatSlice.reducer

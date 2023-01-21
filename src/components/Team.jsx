@@ -1,12 +1,14 @@
 import {useSelector, useDispatch} from "react-redux"
 import {v4 as uuid} from "uuid"
 
-import {addTeamStat} from "../store/slices/teamSlice"
+import {addTeamStat, removeTeamStat} from "../store/slices/teamSlice"
+import {setSearch} from "../store/slices/searchSlice"
 
 const Team = () => {
   const currentStats = useSelector((store) => store.stats.value)
   const teamStats = useSelector((store) => store.team.value)
   const dispatch = useDispatch()
+
   if (!currentStats?.id && !teamStats.length) {
     return ""
   } else {
@@ -23,13 +25,30 @@ const Team = () => {
           </button>
         </div>
         <div className="team">
-          {teamStats.map((pokemon) => (
+          {teamStats.map(({name, id}) => (
             <div className="team-container" key={uuid()}>
               <img
                 className="team-sprite"
-                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon?.id}.png`}
-                alt=""
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
+                alt={`${name}`}
+                value={id}
+                onClick={() =>
+                  dispatch(
+                    setSearch({
+                      value: id,
+                      label: `${name} #${id}`,
+                    })
+                  )
+                }
               />
+              <div className="btn-container">
+                <button
+                  className="delete-btn"
+                  onClick={() => dispatch(removeTeamStat(id))}
+                >
+                  X
+                </button>
+              </div>
             </div>
           ))}
         </div>
