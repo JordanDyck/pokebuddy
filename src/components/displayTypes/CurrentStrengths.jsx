@@ -1,13 +1,26 @@
-import {useSelector} from "react-redux"
+import {useEffect} from "react"
+import {useSelector, useDispatch} from "react-redux"
 import {v4 as uuid} from "uuid"
 
+import {setAttack} from "../../store/slices/typesSlice"
 import TypeColor from "../TypeColor"
+import {
+  handleTypeAdvantageBorder,
+  currentTypes,
+  atkAdvantages,
+} from "../TypeUtilities"
 
-const CurrentStrengths = ({currentTypes, handleTypeAdvantageBorder}) => {
+const CurrentStrengths = () => {
+  const dispatch = useDispatch()
+  const stats = useSelector((store) => store.stats.value)
   const attack = useSelector((store) => store.currentTypes.attack)
-
-  // displays current strength types
-  return attack.length ? (
+  useEffect(() => {
+    if (stats) {
+      dispatch(setAttack(atkAdvantages(stats)))
+    }
+  }, [stats])
+  // displays current strength advantages
+  return attack && stats ? (
     <>
       <label className="advantage-label">Strong against: </label>
       <div className="strengths">
@@ -20,8 +33,9 @@ const CurrentStrengths = ({currentTypes, handleTypeAdvantageBorder}) => {
                 background: TypeColor[atk],
                 borderColor: handleTypeAdvantageBorder(
                   atk,
-                  currentTypes[0],
-                  currentTypes[1]
+                  currentTypes(stats)?.[0],
+                  currentTypes(stats)?.[1],
+                  stats
                 ),
               }}
             >

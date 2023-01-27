@@ -3,10 +3,10 @@ import {createSlice} from "@reduxjs/toolkit"
 export const typesSlice = createSlice({
   name: "currentTypes",
   initialState: {
-    type: "",
-    attack: "",
-    weakness: "",
-    immunity: "",
+    type: undefined,
+    attack: undefined,
+    weakness: undefined,
+    immunity: undefined,
   },
   reducers: {
     setTypes: (state, action) => {

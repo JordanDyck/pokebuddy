@@ -1,16 +1,27 @@
-import {useSelector} from "react-redux"
+import {useEffect} from "react"
+import {useSelector, useDispatch} from "react-redux"
 import {v4 as uuid} from "uuid"
 
 import TypeColor from "../TypeColor"
+import {setImmunity} from "../../store/slices/typesSlice"
+import {immunities} from "../TypeUtilities"
 
 const CurrentImmunities = () => {
-  const immunities = useSelector((store) => store.currentTypes.immunity)
+  const currentImmunities = useSelector((store) => store.currentTypes.immunity)
+  const stats = useSelector((store) => store.stats.value)
 
-  return immunities.length ? (
+  const dispatch = useDispatch()
+  useEffect(() => {
+    if (stats) {
+      dispatch(setImmunity(immunities(stats)))
+    }
+  }, [stats])
+
+  return currentImmunities?.length ? (
     <>
       <label className="advantage-label">Immune to: </label>
       <div className="immunities">
-        {immunities.map((immunity) => {
+        {currentImmunities.map((immunity) => {
           return (
             <h2
               className="immunity-stat"

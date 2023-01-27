@@ -3,7 +3,7 @@ import {useEffect, useState} from "react"
 
 import {useSelector, useDispatch} from "react-redux"
 import {setStat} from "../store/slices/statSlice"
-import CurrentTypes from "./displayTypes/CurrentTypes"
+import MainTypes from "./displayTypes/MainTypes"
 import PokeStats from "./PokeStats"
 import TypeAdvantages from "./TypeAdvantages"
 
@@ -17,7 +17,7 @@ const PokeTypes = () => {
 
   const [loading, setLoading] = useState(true)
 
-  // gets and stores data for current pokemon.
+  // gets and stores stat data for current pokemon.
   useEffect(() => {
     setLoading(true)
     if (stats?.name !== search?.value) {
@@ -49,7 +49,7 @@ const PokeTypes = () => {
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${stats.id}.png`}
               alt=""
             />
-            <CurrentTypes />
+            <MainTypes />
           </div>
 
           <TypeAdvantages />
