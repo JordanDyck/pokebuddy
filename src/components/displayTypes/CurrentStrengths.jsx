@@ -14,6 +14,7 @@ const CurrentStrengths = () => {
   const dispatch = useDispatch()
   const stats = useSelector((store) => store.stats.value)
   const attack = useSelector((store) => store.currentTypes.attack)
+
   useEffect(() => {
     if (stats) {
       dispatch(setAttack(atkAdvantages(stats)))

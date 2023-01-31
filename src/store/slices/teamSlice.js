@@ -15,7 +15,10 @@ export const teamStatSlice = createSlice({
     },
     removeTeamStat: (state, action) => {
       let stateCopy = [...state.value]
-      const index = stateCopy.indexOf({id: action.payload})
+      const index = stateCopy
+        .map((teamMember) => teamMember.id)
+        .indexOf(action.payload)
+
       stateCopy.splice(index, 1)
       state.value = stateCopy
       localStorage.setItem("team", JSON.stringify(stateCopy))

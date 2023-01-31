@@ -187,9 +187,16 @@ body {
   .team-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     margin: 100px 95px 0 0;
     cursor: pointer;
+
+    .team-stat {
+      padding: 3px 12px;
+      border-radius: 20px;
+      border: 4px solid;
+    }
 
     .team-sprite {
       width: 100px;
