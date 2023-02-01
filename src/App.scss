@@ -131,9 +131,8 @@ body {
     padding: 11px;
 
     .border-info-text {
-      position: relative;
       bottom: 33px;
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .strengths,
@@ -178,6 +177,9 @@ body {
     padding: 3px;
     font-size: 25px;
     cursor: pointer;
+    &:disabled {
+      cursor: initial;
+    }
   }
 }
 
@@ -189,13 +191,23 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 100px 95px 0 0;
+    width: 150px;
+    margin: 100px 0 0 0;
     cursor: pointer;
 
-    .team-stat {
-      padding: 3px 12px;
-      border-radius: 20px;
-      border: 4px solid;
+    .team-stat-container {
+      visibility: hidden;
+      margin-bottom: 10px;
+      .team-stat {
+        padding: 3px 12px;
+        border-radius: 20px;
+        border: 4px solid;
+      }
+    }
+    &:hover {
+      .team-stat-container {
+        visibility: visible;
+      }
     }
 
     .team-sprite {

@@ -10,7 +10,7 @@ import {atkAdvantages} from "./TypeUtilities"
 const Team = () => {
   const currentStats = useSelector((store) => store.stats.value)
   const teamStats = useSelector((store) => store.team.value)
-
+  console.log(teamStats.length)
   const dispatch = useDispatch()
   if (!currentStats?.id && !teamStats.length) {
     return ""
@@ -20,6 +20,7 @@ const Team = () => {
         <div className="btn-container">
           <button
             className="add-to-team-btn"
+            disabled={teamStats.length >= 6}
             onClick={() => {
               dispatch(addTeamStat(currentStats))
             }}
@@ -28,25 +29,26 @@ const Team = () => {
           </button>
         </div>
 
-        {/* creates team with strength labels */}
+        {/* displays each team member */}
         <div className="team">
           {teamStats?.map(({name, id}, index) => (
             <div className="team-container" key={uuid()}>
               <div className="team-stat-container">
+                {/* displays advantage types with advantage border */}
                 {atkAdvantages(teamStats[index])?.map((types) => {
                   return (
                     <label
                       key={uuid()}
                       className="team-stat"
-                      // style={{
-                      //   background: TypeColor[atk],
-                      //   borderColor: handleTypeAdvantageBorder(
-                      //     atk,
-                      //     teamStats.types?.[0],
-                      //     teamStats.types?.[1],
-                      //     currentStats
-                      //   ),
-                      // }}
+                      style={{
+                        background: TypeColor[types],
+                        borderColor: handleTypeAdvantageBorder(
+                          types,
+                          teamStats[index].types?.[0]?.type?.name,
+                          teamStats[index].types?.[1]?.type?.name,
+                          teamStats[index]
+                        ),
+                      }}
                     >
                       {types}
                     </label>
@@ -59,6 +61,7 @@ const Team = () => {
                 alt={`${name}`}
                 value={id}
                 onClick={() =>
+                  // sets selected team member as current pokemon.
                   dispatch(
                     setSearch({
                       value: id,
@@ -68,6 +71,7 @@ const Team = () => {
                 }
               />
               <div className="btn-container">
+                {/* removes selected pokemon from team and local storage */}
                 <button
                   className="delete-btn"
                   onClick={() => dispatch(removeTeamStat(id))}
