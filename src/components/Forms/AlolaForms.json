@@ -1,0 +1,20 @@
+{
+  "rattata": {"name": "rattata-alola", "id": 10091, "base_id": 19},
+  "raticate": {"name": "raticate-alola", "id": 10092, "base_id": 20},
+  "geodude": {"name": "geodude-alola", "id": 10109, "base_id": 74},
+  "raichu": {"name": "raichu-alola", "id": 10100, "base_id": 26},
+  "sandshrew": {"name": "sandshrew-alola", "id": 10101, "base_id": 27},
+  "sandslash": {"name": "sandslash-alola", "id": 10102, "base_id": 28},
+  "vulpix": {"name": "vulpix-alola", "id": 10103, "base_id": 37},
+  "ninetales": {"name": "ninetales-alola", "id": 10104, "base_id": 38},
+  "diglett": {"name": "diglett-alola", "id": 10105, "base_id": 50},
+  "dugtrio": {"name": "dugtrio-alola", "id": 10106, "base_id": 51},
+  "meowth": {"name": "meowth-alola", "id": 10107, "base_id": 52},
+  "persian": {"name": "persian-alola", "id": 10108, "base_id": 53},
+  "graveler": {"name": "graveler-alola", "id": 10110, "base_id": 75},
+  "golem": {"name": "golem-alola", "id": 10111, "base_id": 76},
+  "grimer": {"name": "grimer-alola", "id": 10112, "base_id": 88},
+  "muk": {"name": "muk-alola", "id": 10113, "base_id": 89},
+  "exeggutor": {"name": "exeggutor-alola", "id": 10114, "base_id": 102},
+  "marowak": {"name": "marowak-alola", "id": 10115, "base_id": 105}
+}

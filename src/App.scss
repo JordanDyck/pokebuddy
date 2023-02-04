@@ -28,6 +28,15 @@ body {
 
   .search-bar-container {
     display: flex;
+    flex-wrap: wrap;
+    width: 420px;
+
+    .alola-btn-container {
+      margin: auto;
+      .alola-btn {
+        font-size: 20px;
+      }
+    }
 
     #search-bar {
       font-size: 25px;

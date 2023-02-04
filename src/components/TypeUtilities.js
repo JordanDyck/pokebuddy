@@ -134,22 +134,3 @@ export const handleTypeAdvantageBorder = (
     }
   }
 }
-
-// useEffect(() => {
-// if (stats) {
-//     dispatch(setTypes(currentTypes(stats)))
-//     dispatch(setAttack(atkAdvantages))
-//     dispatch(setWeakness(defWeaknesses))
-//     dispatch(setImmunity(immunities))
-//   }
-// )
-
-// return (
-//   <>
-//     <TypeAdvantages
-//       currentTypes={currentTypes}
-//       handleTypeAdvantageBorder={handleTypeAdvantageBorder}
-//     />
-//     <Team />
-//   </>
-// )

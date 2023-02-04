@@ -11,7 +11,7 @@ const PokeTypes = () => {
   //grabs data from store.
   const stats = useSelector((store) => store.stats.value)
   const search = useSelector((store) => store.search.value)
-  // const typess = useSelector((store) => store.types.value)
+
   // puts data into store
   const dispatch = useDispatch()
 

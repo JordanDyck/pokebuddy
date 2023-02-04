@@ -1,0 +1,18 @@
+{
+  "growlithe": {"name": "growlithe-hisui", "id": 10229, "base_id": 58},
+  "arcanine": {"name": "arcanine-hisui", "id": 10230, "base_id": 59},
+  "voltorb": {"name": "voltorb-hisui", "id": 10231, "base_id": 100},
+  "electrode": {"name": "electrode-hisui", "id": 10232, "base_id": 101},
+  "typhlosion": {"name": "typhlosion-hisui", "id": 10233, "base_id": 157},
+  "qwilfish": {"name": "qwilfish-hisui", "id": 10234, "base_id": 211},
+  "sneasel": {"name": "sneasel-hisui", "id": 10235, "base_id": 215},
+  "samurott": {"name": "samurott-hisui", "id": 10236, "base_id": 503},
+  "lilligant": {"name": "lilligant-hisui", "id": 10237, "base_id": 549},
+  "zorua": {"name": "zorua-hisui", "id": 10238, "base_id": 570},
+  "zoroark": {"name": "zoroark-hisui", "id": 10239, "base_id": 571},
+  "braviary": {"name": "braviary-hisui", "id": 10240, "base_id": 628},
+  "sliggoo": {"name": "sliggoo-hisui", "id": 10241, "base_id": 705},
+  "goodra": {"name": "goodra-hisui", "id": 10242, "base_id": 706},
+  "avalugg": {"name": "avalugg-hisui", "id": 10243, "base_id": 713},
+  "decidueye": {"name": "decidueye-hisui", "id": 10244, "base_id": 724}
+}

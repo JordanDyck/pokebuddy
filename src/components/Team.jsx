@@ -10,7 +10,6 @@ import {atkAdvantages} from "./TypeUtilities"
 const Team = () => {
   const currentStats = useSelector((store) => store.stats.value)
   const teamStats = useSelector((store) => store.team.value)
-  console.log(teamStats.length)
   const dispatch = useDispatch()
   if (!currentStats?.id && !teamStats.length) {
     return ""
@@ -65,7 +64,11 @@ const Team = () => {
                   dispatch(
                     setSearch({
                       value: id,
-                      label: `${name} #${id}`,
+                      label: `${name} ${
+                        name.includes("-alola") || name.includes("-hisui")
+                          ? ""
+                          : "#" + id
+                      }`,
                     })
                   )
                 }
