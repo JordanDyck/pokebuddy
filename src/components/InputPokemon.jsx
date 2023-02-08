@@ -58,11 +58,11 @@ const InputPokemon = () => {
         />
         <GameVersion setPokemonList={setPokemonList} />
         <div
-          className="alola-btn-container"
+          className="alt-btn-container"
           style={{display: hasAltForm ? "" : "none"}}
         >
           <button
-            className="alola-btn"
+            className="alt-btn"
             onClick={() =>
               dispatch(
                 setSearch({value: searchForm?.value, label: searchForm?.label})

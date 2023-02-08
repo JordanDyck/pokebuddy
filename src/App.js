@@ -1,9 +1,11 @@
 import "./App.scss"
+import "./styles/Title.scss"
+import "./styles/Search.scss"
+import "./styles/Stats.scss"
+import "./styles/Team.scss"
 import InputPokemon from "./components/InputPokemon"
 import Title from "./components/Title"
 import Team from "./components/Team"
-
-// to add alola region: get pokemon by species, look for varieties, search pokemon id from there.
 
 function App() {
   return (
