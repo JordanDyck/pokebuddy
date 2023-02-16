@@ -42,7 +42,6 @@ const PokeTypes = () => {
     <div className="stats-container">
       {stats ? (
         <>
-          <PokeStats stats={stats} />
           <div className="sprite-wrapper">
             <img
               className="sprite"
@@ -53,6 +52,7 @@ const PokeTypes = () => {
           </div>
 
           <TypeAdvantages />
+          <PokeStats stats={stats} />
         </>
       ) : (
         ""

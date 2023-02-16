@@ -22,13 +22,13 @@ const MainTypes = () => {
     <div className="types">
       {types.map((type) => {
         return (
-          <h2
+          <label
             className="type-stat"
             key={uuid()}
             style={{background: TypeColor[type]}}
           >
             {type}
-          </h2>
+          </label>
         )
       })}
     </div>

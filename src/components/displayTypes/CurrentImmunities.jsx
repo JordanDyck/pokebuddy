@@ -19,17 +19,17 @@ const CurrentImmunities = () => {
 
   return currentImmunities?.length ? (
     <>
-      <label className="advantage-label">Immune to: </label>
+      <label className="advantage-label imunity-label">Immune to: </label>
       <div className="immunities">
         {currentImmunities.map((immunity) => {
           return (
-            <h2
+            <label
               className="immunity-stat"
               key={uuid()}
               style={{background: TypeColor?.[immunity]}}
             >
               {immunity}
-            </h2>
+            </label>
           )
         })}
       </div>

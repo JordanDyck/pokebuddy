@@ -20,17 +20,17 @@ const CurrentWeaknesses = () => {
 
   return weaknesses ? (
     <>
-      <label className="advantage-label">Weak against: </label>
+      <label className="advantage-label weakness-label">Weak against: </label>
       <div className="weaknesses">
         {weaknesses.map((weakness) => {
           return (
-            <h2
+            <label
               className="weakness-stat"
               key={uuid()}
               style={{background: TypeColor[weakness]}}
             >
               {weakness}
-            </h2>
+            </label>
           )
         })}
       </div>

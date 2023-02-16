@@ -5,7 +5,6 @@ import axios from "axios"
 
 import {setSearch} from "../store/slices/searchSlice"
 import GameVersion from "./GameVersion"
-import PokeTypes from "./PokeTypes"
 import alolaForms from "./Forms/AlolaForms.json"
 import hisuianForms from "./Forms/HisuianForms.json"
 
@@ -44,6 +43,7 @@ const InputPokemon = () => {
 
   return (
     <div className="search-container">
+      <div className="search-background"></div>
       <div className="search-bar-container">
         <Select
           id="search-bar"
@@ -72,10 +72,6 @@ const InputPokemon = () => {
             Alt Form
           </button>
         </div>
-      </div>
-
-      <div className="stats-wrapper">
-        <PokeTypes />
       </div>
     </div>
   )

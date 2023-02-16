@@ -23,11 +23,11 @@ const CurrentStrengths = () => {
   // displays current strength advantages
   return attack && stats ? (
     <>
-      <label className="advantage-label">Strong against: </label>
+      <label className="advantage-label atk-label">Strong against: </label>
       <div className="strengths">
         {attack.map((atk) => {
           return (
-            <h2
+            <label
               className="strength-stat"
               key={uuid()}
               style={{
@@ -41,7 +41,7 @@ const CurrentStrengths = () => {
               }}
             >
               {atk}
-            </h2>
+            </label>
           )
         })}
       </div>

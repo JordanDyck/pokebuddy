@@ -13,7 +13,7 @@ const PokeStats = ({stats}) => {
     "S-Defense",
     "Speed",
   ]
-
+  // use the ref.
   const barRef = useRef()
 
   return (
