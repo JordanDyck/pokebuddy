@@ -13,16 +13,16 @@ const PokeStats = ({stats}) => {
     "S-Defense",
     "Speed",
   ]
-  // use the ref.
-  const barRef = useRef()
+
+  const barRef = useRef(null)
 
   return (
-    <div className="base-stats-container">
+    <div className="base-stats-container" ref={barRef}>
       {statData.map((stat, index) => {
         return (
           <div className="stat" key={statLabels[index]}>
             <label className="stat-label">{`${statLabels[index]}: `}</label>
-            <div className="max-bar" ref={barRef}>
+            <div className="max-bar">
               <div
                 className="stat-bar"
                 style={{

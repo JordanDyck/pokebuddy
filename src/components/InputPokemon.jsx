@@ -43,7 +43,6 @@ const InputPokemon = () => {
 
   return (
     <div className="search-container">
-      <div className="search-background"></div>
       <div className="search-bar-container">
         <Select
           id="search-bar"

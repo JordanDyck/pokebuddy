@@ -18,7 +18,7 @@ const CurrentWeaknesses = () => {
     }
   }, [stats])
 
-  return weaknesses ? (
+  return weaknesses?.length ? (
     <>
       <label className="advantage-label weakness-label">Weak against: </label>
       <div className="weaknesses">

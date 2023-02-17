@@ -21,7 +21,7 @@ const CurrentStrengths = () => {
     }
   }, [stats])
   // displays current strength advantages
-  return attack && stats ? (
+  return attack?.length ? (
     <>
       <label className="advantage-label atk-label">Strong against: </label>
       <div className="strengths">

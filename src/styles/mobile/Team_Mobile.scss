@@ -1,3 +1,7 @@
+@media (min-width: 1000px) {
+  @import "../desktop/Team_Desktop.scss";
+}
+
 .team {
   display: flex;
   justify-content: center;

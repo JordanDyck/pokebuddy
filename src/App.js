@@ -1,5 +1,5 @@
 import "./App.scss"
-import "./styles/desktop/Title.scss"
+import "./styles/desktop/Title_Desktop.scss"
 import "./styles/mobile/Search_Mobile.scss"
 import "./styles/mobile/Stats_Mobile.scss"
 import "./styles/mobile/Team_Mobile.scss"
