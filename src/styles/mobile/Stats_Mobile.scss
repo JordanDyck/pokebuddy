@@ -1,144 +1,161 @@
-@media (min-width: 1000px) {
-  @import "../desktop/stats_Desktop.scss";
+@media (min-width: 1116px) {
+  @import "../desktop/Stats_Desktop.scss";
 }
 
-.stats-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .sprite-wrapper {
+@media (max-width: 1116px) {
+  .stats-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    .sprite {
-      width: 200px;
-    }
-
-    .types {
+    .sprite-wrapper {
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      border-bottom: 4px solid;
-      border-top: 4px solid red;
-      border-radius: 25px;
-      padding: 7px 7px;
-      .type-stat {
-        border: 2px solid;
-        padding: 3px 12px;
-        border-radius: 20px;
-        font-size: 20px;
+      align-items: center;
+      margin-top: 20px;
+      .sprite {
+        width: 200px;
+      }
+
+      .types {
+        display: flex;
+        justify-content: center;
+        border-bottom: 4px solid;
+        border-top: 4px solid red;
+        border-radius: 25px;
+        padding: 7px 7px;
+        .type-stat {
+          border: 2px solid;
+          padding: 3px 12px;
+          border-radius: 20px;
+          font-size: 20px;
+        }
       }
     }
-  }
 
-  .base-stats-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 25px;
-    height: 208px;
-    gap: 2px;
-    background-color: #bdbdbd;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%, 0 88%);
-
-    .stat {
+    .base-stats-container {
       display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding-right: 25px;
+      height: 208px;
+      gap: 2px;
+      background-color: #bdbdbd;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%, 0 88%);
 
-      .stat-label {
+      .label-wrapper {
         display: flex;
-        align-items: center;
-        margin-left: 24px;
-        width: 88px;
-      }
-      .max-bar {
-        // width: 255px;
-        border-radius: 20px;
-        background-color: white;
-        border: 2px solid #0000002b;
-
-        .stat-bar {
+        flex-direction: column;
+        justify-content: space-evenly;
+        .stat-label {
           display: flex;
+          white-space: nowrap;
           align-items: center;
-          height: 20px;
-          min-width: 26px;
-          max-width: 100px;
-          background-color: orange;
-          border-radius: 20px;
-          padding: 2px 0px 2px 0px;
-          border: 1px solid #00000059;
+          margin-left: 24px;
+          width: 88px;
+        }
+      }
 
-          .stat-number {
-            padding: 0 5px 0 5px;
+      .bar-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        .stat {
+          display: flex;
+
+          .max-bar {
+            width: 100%;
+            min-width: 100px;
+            border-radius: 20px;
+            background-color: white;
+            border: 2px solid #0000002b;
+
+            .stat-bar {
+              display: flex;
+              align-items: center;
+              height: 20px;
+              min-width: 6px;
+              max-width: 100px;
+              background-color: orange;
+              border-radius: 20px;
+              padding: 2px 0px 2px 0px;
+              border: 1px solid #00000059;
+
+              .stat-number {
+                padding: 0 5px 0 3px;
+                font-size: 12px;
+              }
+            }
           }
         }
       }
     }
-  }
-  .strengths_weaknesses-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 303px;
-    padding: 11px;
-
-    .advantage-label {
-      border-radius: 15px;
-      padding: 2px 12px;
-    }
-    .atk-label {
-      font-size: 20px;
-      background: linear-gradient(
-        90deg,
-        rgb(63, 239, 92) 38%,
-        rgba(0, 0, 0, 0) 88%
-      );
-    }
-
-    .weakness-label {
-      font-size: 20px;
-      background: linear-gradient(
-        90deg,
-        rgb(239, 63, 63) 38%,
-        rgba(0, 0, 0, 0) 88%
-      );
-    }
-
-    .imunity-label {
-      font-size: 20px;
-      background: linear-gradient(
-        90deg,
-        rgb(153, 127, 214) 38%,
-        rgba(0, 0, 0, 0) 88%
-      );
-    }
-
-    .strengths,
-    .weaknesses,
-    .immunities {
+    .strengths_weaknesses-container {
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 10px 0;
-      gap: 3px;
-      &:not(.immunities) {
-        padding-bottom: 20px;
+      flex-direction: column;
+      max-width: 303px;
+      padding: 11px;
+
+      .advantage-label {
+        border-radius: 15px;
+        padding: 2px 12px;
       }
-    }
+      .atk-label {
+        font-size: 20px;
+        background: linear-gradient(
+          90deg,
+          rgb(63, 239, 92) 38%,
+          rgba(0, 0, 0, 0) 88%
+        );
+      }
 
-    .strength-stat {
-      padding: 3px 12px;
-      border-radius: 20px;
-      border: 4px solid;
-      font-size: 20px;
-    }
+      .weakness-label {
+        font-size: 20px;
+        background: linear-gradient(
+          90deg,
+          rgb(239, 63, 63) 38%,
+          rgba(0, 0, 0, 0) 88%
+        );
+      }
 
-    .weakness-stat,
-    .immunity-stat {
-      padding: 3px 12px;
-      border-radius: 20px;
-      border: 2px solid #808080a8;
-      font-size: 20px;
+      .imunity-label {
+        font-size: 20px;
+        background: linear-gradient(
+          90deg,
+          rgb(153, 127, 214) 38%,
+          rgba(0, 0, 0, 0) 88%
+        );
+      }
+
+      .strengths,
+      .weaknesses,
+      .immunities {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 0;
+        gap: 3px;
+        &:not(.immunities) {
+          padding-bottom: 20px;
+        }
+      }
+
+      .strength-stat {
+        padding: 3px 12px;
+        border-radius: 20px;
+        border: 4px solid;
+        font-size: 20px;
+      }
+
+      .weakness-stat,
+      .immunity-stat {
+        padding: 3px 12px;
+        border-radius: 20px;
+        border: 2px solid #808080a8;
+        font-size: 20px;
+      }
     }
   }
 }

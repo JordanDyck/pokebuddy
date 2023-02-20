@@ -17,24 +17,34 @@ const PokeStats = ({stats}) => {
   const barRef = useRef(null)
 
   return (
-    <div className="base-stats-container" ref={barRef}>
-      {statData.map((stat, index) => {
-        return (
-          <div className="stat" key={statLabels[index]}>
-            <label className="stat-label">{`${statLabels[index]}: `}</label>
-            <div className="max-bar">
-              <div
-                className="stat-bar"
-                style={{
-                  width: `${stat}px`,
-                }}
-              >
-                <div className="stat-number">{stat}</div>
+    <div className="base-stats-container">
+      <div className="label-wrapper">
+        {statLabels.map((label, index) => {
+          return (
+            <label key={index} className="stat-label">
+              {label}
+            </label>
+          )
+        })}
+      </div>
+      <div className="bar-wrapper" ref={barRef}>
+        {statData.map((stat, index) => {
+          return (
+            <div className="stat" key={[index]}>
+              <div className="max-bar">
+                <div
+                  className="stat-bar"
+                  style={{
+                    width: `${(stat * 100) / 255}%`,
+                  }}
+                >
+                  <div className="stat-number">{stat}</div>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   )
 }

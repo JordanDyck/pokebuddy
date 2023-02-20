@@ -2,17 +2,20 @@
   display: flex;
   justify-content: center;
   .team-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 150px;
     margin-top: 60px;
+    margin-bottom: 30px;
     cursor: pointer;
 
     .team-stat-container {
+      position: absolute;
       visibility: hidden;
-      margin-bottom: 10px;
+      margin-bottom: 169px;
       .team-stat {
         padding: 3px 12px;
         border-radius: 20px;
@@ -29,7 +32,6 @@
       width: 100px;
     }
   }
-
   .delete-btn {
     display: flex;
     justify-content: center;
@@ -38,5 +40,36 @@
     width: 25px;
     height: 25px;
     cursor: pointer;
+  }
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  .add-to-team-btn {
+    width: 186px;
+    // border-radius: 23px;
+    margin-top: 15px;
+    // font-size: 25px;
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    cursor: pointer;
+    &:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+    &:disabled {
+      cursor: initial;
+      background-color: rgb(169 0 0);
+      transform: translateY(4px);
+      box-shadow: 0 5px #666;
+    }
   }
 }
