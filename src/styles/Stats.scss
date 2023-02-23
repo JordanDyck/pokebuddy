@@ -1,0 +1,203 @@
+$desktop: 1116px;
+
+.stats-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .sprite-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    @media (min-width: $desktop) {
+      order: 2;
+    }
+    .sprite {
+      width: 200px;
+      @media (min-width: $desktop) {
+        width: 276px;
+        margin-top: 28px;
+      }
+    }
+
+    .types {
+      display: flex;
+      justify-content: center;
+      border-bottom: 4px solid;
+      border-top: 4px solid red;
+      border-radius: 25px;
+      padding: 7px 7px;
+      text-transform: capitalize;
+      @media (min-width: $desktop) {
+        margin-top: 22px;
+      }
+      .type-stat {
+        border: 2px solid;
+        padding: 3px 12px;
+        border-radius: 20px;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .base-stats-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-right: 25px;
+    height: 208px;
+    gap: 2px;
+    background-color: #bdbdbd;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%, 0 88%);
+
+    @media (min-width: $desktop) {
+      height: 252px;
+      width: 300px;
+      padding-right: 47px;
+      gap: 10px;
+      margin-left: 30px;
+      order: 3;
+    }
+
+    .label-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      .stat-label {
+        display: flex;
+        white-space: nowrap;
+        align-items: center;
+        margin-left: 24px;
+        width: 88px;
+      }
+    }
+
+    .bar-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .stat {
+        display: flex;
+
+        .max-bar {
+          width: 100%;
+          min-width: 100px;
+          border-radius: 20px;
+          background-color: white;
+          border: 2px solid #0000002b;
+          // @media (min-width: $desktop) {
+          // }
+
+          .stat-bar {
+            display: flex;
+            align-items: center;
+            height: 20px;
+            min-width: 6px;
+            max-width: 100px;
+            background-color: orange;
+            border-radius: 20px;
+            padding: 2px 0px 2px 0px;
+            border: 1px solid #00000059;
+            @media (min-width: $desktop) {
+              min-width: 26px;
+            }
+            .stat-number {
+              padding: 0 5px 0 3px;
+              font-size: 12px;
+              @media (min-width: $desktop) {
+                padding: 0 5px 0 5px;
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .strengths_weaknesses-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 303px;
+    padding: 11px;
+    @media (min-width: $desktop) {
+      background-color: #aceeff;
+      border: 3px solid;
+      border-radius: 45px;
+      box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
+      margin: 0 30px 0 18px;
+      order: 1;
+    }
+
+    .advantage-label {
+      border-radius: 15px;
+      padding: 2px 12px;
+      font-size: 20px;
+
+      @media (min-width: $desktop) {
+        border-radius: 15px;
+        margin-bottom: 6px;
+        padding-left: 10px;
+        width: 281px;
+      }
+    }
+    .atk-label {
+      background: linear-gradient(
+        90deg,
+        rgb(63, 239, 92) 38%,
+        rgba(0, 0, 0, 0) 88%
+      );
+    }
+
+    .weakness-label {
+      background: linear-gradient(
+        90deg,
+        rgb(239, 63, 63) 38%,
+        rgba(0, 0, 0, 0) 88%
+      );
+    }
+
+    .imunity-label {
+      background: linear-gradient(
+        90deg,
+        rgb(153, 127, 214) 38%,
+        rgba(0, 0, 0, 0) 88%
+      );
+    }
+
+    .strengths,
+    .weaknesses,
+    .immunities {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 0;
+      gap: 3px;
+      text-transform: capitalize;
+      &:not(.immunities) {
+        padding-bottom: 20px;
+      }
+    }
+
+    .strength-stat {
+      padding: 3px 12px;
+      border-radius: 20px;
+      border: 4px solid;
+      font-size: 20px;
+    }
+
+    .weakness-stat,
+    .immunity-stat {
+      padding: 3px 12px;
+      border-radius: 20px;
+      border: 2px solid #808080a8;
+      font-size: 20px;
+    }
+  }
+}

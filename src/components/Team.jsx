@@ -11,6 +11,7 @@ const Team = () => {
   const currentStats = useSelector((store) => store.stats.value)
   const teamStats = useSelector((store) => store.team.value)
   const dispatch = useDispatch()
+
   if (!currentStats?.id && !teamStats.length) {
     return ""
   } else {
@@ -34,25 +35,29 @@ const Team = () => {
             <div className="team-container" key={uuid()}>
               <div className="team-stat-container">
                 {/* displays advantage types with advantage border */}
-                {atkAdvantages(teamStats[index])?.map((types) => {
-                  return (
-                    <label
-                      key={uuid()}
-                      className="team-stat"
-                      style={{
-                        background: TypeColor[types],
-                        borderColor: handleTypeAdvantageBorder(
-                          types,
-                          teamStats[index].types?.[0]?.type?.name,
-                          teamStats[index].types?.[1]?.type?.name,
-                          teamStats[index]
-                        ),
-                      }}
-                    >
-                      {types}
-                    </label>
-                  )
-                })}
+                {atkAdvantages(teamStats[index]).length ? (
+                  atkAdvantages(teamStats[index])?.map((types) => {
+                    return (
+                      <label
+                        key={uuid()}
+                        className="team-stat"
+                        style={{
+                          background: TypeColor[types],
+                          borderColor: handleTypeAdvantageBorder(
+                            types,
+                            teamStats[index].types?.[0]?.type?.name,
+                            teamStats[index].types?.[1]?.type?.name,
+                            teamStats[index]
+                          ),
+                        }}
+                      >
+                        {types}
+                      </label>
+                    )
+                  })
+                ) : (
+                  <label className="no-strengths">No Strengths</label>
+                )}
               </div>
               <img
                 className="team-sprite"

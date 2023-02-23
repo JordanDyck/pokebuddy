@@ -1,35 +1,59 @@
+$desktop: 1116px;
+
 .team {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  @media (min-width: $desktop) {
+    flex-direction: row;
+  }
+
   .team-container {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 150px;
     margin-top: 60px;
-    margin-bottom: 30px;
     cursor: pointer;
-
+    @media (min-width: $desktop) {
+      position: relative;
+      width: 170px;
+      margin-bottom: 30px;
+      &:hover {
+        .team-stat-container {
+          visibility: visible;
+        }
+      }
+    }
     .team-stat-container {
-      position: absolute;
-      visibility: hidden;
-      margin-bottom: 169px;
+      display: flex;
+      visibility: visible;
+      width: 290px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+      text-transform: capitalize;
+      @media (min-width: $desktop) {
+        position: absolute;
+        visibility: hidden;
+        margin-bottom: 169px;
+      }
       .team-stat {
         padding: 3px 12px;
         border-radius: 20px;
         border: 4px solid;
       }
-    }
-    &:hover {
-      .team-stat-container {
-        visibility: visible;
+      .no-strengths {
+        border: 2px dashed black;
+        padding: 4px;
+        border-radius: 20px;
+        color: #ffffff;
+        background-color: #7e7e7e;
+        font-weight: 600;
       }
     }
-
     .team-sprite {
-      width: 100px;
+      width: 125px;
     }
   }
   .delete-btn {
