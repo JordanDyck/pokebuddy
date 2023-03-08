@@ -7,21 +7,22 @@ import {handleTypeAdvantageBorder} from "./TypeUtilities"
 import TypeColor from "./TypeColor"
 import {atkAdvantages} from "./TypeUtilities"
 
-const Team = () => {
+const Team = ({loading}) => {
   const currentStats = useSelector((store) => store.stats.value)
   const teamStats = useSelector((store) => store.team.value)
   const dispatch = useDispatch()
 
   if (!currentStats?.id && !teamStats.length) {
     return ""
-  } else {
+  } else if (!loading) {
     return (
-      <div>
-        <div className="btn-container">
+      <div className="team-wrapper">
+        <div className="btn-container" key={loading ? 1 : 2}>
           <button
             className="add-to-team-btn"
             disabled={teamStats.length >= 6}
             onClick={() => {
+              // clickRef.current.className = "btn-container"
               dispatch(addTeamStat(currentStats))
             }}
           >

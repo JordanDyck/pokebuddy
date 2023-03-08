@@ -1,5 +1,5 @@
 import axios from "axios"
-import {useEffect, useState} from "react"
+import {useEffect} from "react"
 
 import {useSelector, useDispatch} from "react-redux"
 import {setStat} from "../store/slices/statSlice"
@@ -7,15 +7,13 @@ import MainTypes from "./displayTypes/MainTypes"
 import PokeStats from "./PokeStats"
 import TypeAdvantages from "./TypeAdvantages"
 
-const PokeTypes = () => {
+const PokeTypes = ({loading, setLoading}) => {
   //grabs data from store.
   const stats = useSelector((store) => store.stats.value)
   const search = useSelector((store) => store.search.value)
 
   // puts data into store
   const dispatch = useDispatch()
-
-  const [loading, setLoading] = useState(true)
 
   // gets and stores stat data for current pokemon.
   useEffect(() => {
@@ -31,16 +29,11 @@ const PokeTypes = () => {
     }
   }, [search])
 
-  if (loading)
-    return (
-      <div className="loading">
-        <h1 className="loading-text">loading...</h1>
-      </div>
-    )
+  if (loading) return <div className="loading"></div>
 
   return (
     <div className="stats-container">
-      {stats ? (
+      {stats && !loading ? (
         <>
           <div className="sprite-wrapper">
             <img

@@ -4,30 +4,21 @@ $desktop: 1116px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  margin: auto;
   @media (min-width: $desktop) {
     flex-direction: column;
-    align-items: center;
   }
 
   .search-bar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-transform: capitalize;
 
     @media (min-width: $desktop) {
       flex-direction: row;
-    }
-
-    .alt-btn-container {
-      margin: auto;
-      margin-top: 10px;
-      .alt-btn {
-        font-size: 20px;
-        padding: 5px;
-        border: 1.5px solid;
-        border-radius: 15px;
-        cursor: pointer;
-      }
+      margin-left: 235px;
     }
 
     #search-bar {
@@ -38,6 +29,19 @@ $desktop: 1116px;
 
     .select-version {
       font-size: 25px;
+      width: 260px;
+      text-align: center;
+    }
+  }
+  .alt-btn-container {
+    margin: auto;
+    margin-top: 10px;
+    .alt-btn {
+      font-size: 20px;
+      padding: 5px;
+      border: 1.5px solid;
+      border-radius: 15px;
+      cursor: pointer;
     }
   }
 }

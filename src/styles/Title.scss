@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Carter+One&display=swap");
 .top-banner {
   background-color: rgba(255, 0, 0, 0.863);
 
@@ -6,6 +7,9 @@
     justify-content: center;
     padding-top: 30px;
     font-size: 60px;
+    font-family: "Carter One", cursive;
+    color: yellow;
+    -webkit-text-stroke: 4px #1b2c62;
     margin: 0 10px;
   }
 }

@@ -1,4 +1,4 @@
-import {useMemo, useRef} from "react"
+import {useMemo} from "react"
 
 const PokeStats = ({stats}) => {
   const statData = useMemo(() => {
@@ -14,8 +14,6 @@ const PokeStats = ({stats}) => {
     "Speed",
   ]
 
-  const barRef = useRef(null)
-
   return (
     <div className="base-stats-container">
       <div className="label-wrapper">
@@ -27,7 +25,7 @@ const PokeStats = ({stats}) => {
           )
         })}
       </div>
-      <div className="bar-wrapper" ref={barRef}>
+      <div className="bar-wrapper">
         {statData.map((stat, index) => {
           return (
             <div className="stat" key={[index]}>

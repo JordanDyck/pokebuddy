@@ -3,15 +3,15 @@ import axios from "axios"
 import {useState, useEffect} from "react"
 
 const options = [
-  {value: 1, label: "Gen 1"},
-  {value: 2, label: "Gen 2"},
-  {value: 3, label: "Gen 3"},
-  {value: 4, label: "Gen 4"},
-  {value: 5, label: "Gen 5"},
-  {value: 6, label: "Gen 6"},
-  {value: 7, label: "Gen 7"},
-  {value: 8, label: "Gen 8"},
-  {value: 9, label: "Gen 9"},
+  {value: 1, label: "Gen 1 (#1-151)"},
+  {value: 2, label: "Gen 2 (#152-251)"},
+  {value: 3, label: "Gen 3 (#252-386)"},
+  {value: 4, label: "Gen 4 (#387-493)"},
+  {value: 5, label: "Gen 5 (#494-649)"},
+  {value: 6, label: "Gen 6 (#650-721)"},
+  {value: 7, label: "Gen 7 (#722-809)"},
+  {value: 8, label: "Gen 8 (#810-905)"},
+  {value: 9, label: "Gen 9 (#906-1008)"},
 ]
 
 const GameVersion = ({setPokemonList}) => {
@@ -55,6 +55,12 @@ const GameVersion = ({setPokemonList}) => {
         options={options}
         value={generation}
         onChange={handleChoice}
+        styles={{
+          option: (base) => ({
+            ...base,
+            border: "1px solid #a9a9a9",
+          }),
+        }}
       />
     </div>
   )

@@ -4,24 +4,28 @@ $desktop: 1116px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   @media (min-width: $desktop) {
     flex-direction: row;
     justify-content: center;
+    margin-top: 20px;
   }
   .sprite-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+
     @media (min-width: $desktop) {
       order: 2;
     }
     .sprite {
       width: 200px;
+      background-color: #f9f7f7;
+      box-shadow: 0 0 5px 5px #efefef inset;
       @media (min-width: $desktop) {
+        animation: fade-in 0.8s linear;
         width: 276px;
-        margin-top: 28px;
       }
     }
 
@@ -33,8 +37,10 @@ $desktop: 1116px;
       border-radius: 25px;
       padding: 7px 7px;
       text-transform: capitalize;
+      animation: fade-in 1s ease-in;
       @media (min-width: $desktop) {
         margin-top: 22px;
+        gap: 4px;
       }
       .type-stat {
         border: 2px solid;
@@ -53,7 +59,7 @@ $desktop: 1116px;
     height: 208px;
     gap: 2px;
     background-color: #bdbdbd;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%, 0 88%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%, 0 92%);
 
     @media (min-width: $desktop) {
       height: 252px;
@@ -61,7 +67,12 @@ $desktop: 1116px;
       padding-right: 47px;
       gap: 10px;
       margin-left: 30px;
+      clip-path: none;
+      border: 5px double #6c6969;
+      border-radius: 4px 63px 21px 45px;
+      box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
       order: 3;
+      animation: fade-in 0.8s 0.7s linear both;
     }
 
     .label-wrapper {
@@ -74,6 +85,11 @@ $desktop: 1116px;
         align-items: center;
         margin-left: 24px;
         width: 88px;
+        font-size: 15px;
+
+        @media (min-width: $desktop) {
+          font-size: 19px;
+        }
       }
     }
 
@@ -91,25 +107,27 @@ $desktop: 1116px;
           border-radius: 20px;
           background-color: white;
           border: 2px solid #0000002b;
-          // @media (min-width: $desktop) {
-          // }
+          @media (min-width: $desktop) {
+            width: 188px;
+          }
 
           .stat-bar {
             display: flex;
             align-items: center;
             height: 20px;
-            min-width: 6px;
-            max-width: 100px;
+            min-width: 22px;
             background-color: orange;
             border-radius: 20px;
             padding: 2px 0px 2px 0px;
             border: 1px solid #00000059;
+
             @media (min-width: $desktop) {
               min-width: 26px;
             }
             .stat-number {
               padding: 0 5px 0 3px;
               font-size: 12px;
+
               @media (min-width: $desktop) {
                 padding: 0 5px 0 5px;
                 font-size: 15px;
@@ -123,24 +141,30 @@ $desktop: 1116px;
   .strengths_weaknesses-container {
     display: flex;
     flex-direction: column;
-    max-width: 303px;
-    padding: 11px;
+    max-width: 290px;
+    padding: 25px 15px;
+    border-radius: 40px;
+    opacity: 0;
+    box-shadow: 0 0 5px 5px #efefef inset;
+    animation: fade-in 0.8s 0.3s both;
+
     @media (min-width: $desktop) {
-      background-color: #aceeff;
-      border: 3px solid;
-      border-radius: 45px;
+      // border & background colors are in TypeAdvantages
+      border-radius: 5px 5px 5px 45px;
       box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
       margin: 0 30px 0 18px;
+      padding: 12px 18px;
+      border: 4px solid;
       order: 1;
     }
 
     .advantage-label {
-      border-radius: 15px;
+      border-radius: 0 0 0 20px;
       padding: 2px 12px;
       font-size: 20px;
 
       @media (min-width: $desktop) {
-        border-radius: 15px;
+        // border-radius: 15px;
         margin-bottom: 6px;
         padding-left: 10px;
         width: 281px;
@@ -199,5 +223,14 @@ $desktop: 1116px;
       border: 2px solid #808080a8;
       font-size: 20px;
     }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
   }
 }

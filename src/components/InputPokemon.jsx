@@ -36,7 +36,6 @@ const InputPokemon = () => {
         .get(`https://pokeapi.co/api/v2/pokemon/${hasAltForm}`)
         .then((res) => {
           setSearchForm({value: res?.data?.id, label: res?.data?.name})
-          console.log(hasAltForm)
         })
     }
   }, [hasAltForm])
@@ -47,30 +46,38 @@ const InputPokemon = () => {
         <Select
           id="search-bar"
           options={pokemonList}
+          placeholder={"select Pokemon"}
+          transition
           components={{
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,
+          }}
+          styles={{
+            option: (base) => ({
+              ...base,
+              border: "1px solid #a9a9a9",
+            }),
           }}
           filterOption={createFilter({ignoreCase: true})}
           value={search}
           onChange={(value) => dispatch(setSearch(value))}
         />
         <GameVersion setPokemonList={setPokemonList} />
-        <div
-          className="alt-btn-container"
-          style={{display: hasAltForm ? "" : "none"}}
+      </div>
+      <div
+        className="alt-btn-container"
+        style={{display: hasAltForm ? "" : "none"}}
+      >
+        <button
+          className="alt-btn"
+          onClick={() =>
+            dispatch(
+              setSearch({value: searchForm?.value, label: searchForm?.label})
+            )
+          }
         >
-          <button
-            className="alt-btn"
-            onClick={() =>
-              dispatch(
-                setSearch({value: searchForm?.value, label: searchForm?.label})
-              )
-            }
-          >
-            Alt Form
-          </button>
-        </div>
+          Alt Form
+        </button>
       </div>
     </div>
   )
