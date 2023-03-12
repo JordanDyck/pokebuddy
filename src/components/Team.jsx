@@ -22,7 +22,6 @@ const Team = ({loading}) => {
             className="add-to-team-btn"
             disabled={teamStats.length >= 6}
             onClick={() => {
-              // clickRef.current.className = "btn-container"
               dispatch(addTeamStat(currentStats))
             }}
           >
@@ -32,6 +31,14 @@ const Team = ({loading}) => {
 
         {/* displays each team member */}
         <div className="team">
+          <div className="bg-label-container">
+            <div className="bg-label">
+              <label>T</label>
+              <label>E</label>
+              <label>A</label>
+              <label>M</label>
+            </div>
+          </div>
           {teamStats?.map(({name, id}, index) => (
             <div className="team-container" key={uuid()}>
               <div className="team-stat-container">

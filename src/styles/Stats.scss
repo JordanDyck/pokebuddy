@@ -23,6 +23,7 @@ $desktop: 1116px;
       width: 200px;
       background-color: #f9f7f7;
       box-shadow: 0 0 5px 5px #efefef inset;
+      user-select: none;
       @media (min-width: $desktop) {
         animation: fade-in 0.8s linear;
         width: 276px;

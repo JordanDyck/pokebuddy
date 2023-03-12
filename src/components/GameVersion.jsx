@@ -32,7 +32,6 @@ const GameVersion = ({setPokemonList}) => {
             id: p.url.split("species/")[1].replace("/", ""),
           }))
           const sortedGenData = [...newGenData].sort((a, b) => a.id - b.id)
-
           setGenData(sortedGenData.map((p) => p.name))
           // creates a list of all pokemon names in current gen
           setPokemonList(
@@ -43,10 +42,11 @@ const GameVersion = ({setPokemonList}) => {
           )
         })
     }
-  }, [generation])
+  }, [generation, genData.id, setPokemonList])
 
   const handleChoice = (selectedOption) => {
     setGeneration(selectedOption)
+    console.log(selectedOption)
   }
   return (
     <div>

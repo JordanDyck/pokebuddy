@@ -27,9 +27,7 @@ const PokeTypes = ({loading, setLoading}) => {
         })
         .catch(() => setLoading(false))
     }
-  }, [search])
-
-  if (loading) return <div className="loading"></div>
+  }, [search, dispatch, setLoading, stats?.name])
 
   return (
     <div className="stats-container">

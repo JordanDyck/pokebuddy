@@ -19,6 +19,7 @@ $desktop: 1116px;
     @media (min-width: $desktop) {
       flex-direction: row;
       margin-left: 235px;
+      gap: 5px;
     }
 
     #search-bar {

@@ -1,7 +1,9 @@
 const title = () => {
   return (
     <div className="top-banner">
-      <header id="title">PokéBuddy</header>
+      <header id="title" onClick={() => window.location.reload(false)}>
+        PokéBuddy
+      </header>
     </div>
   )
 }
