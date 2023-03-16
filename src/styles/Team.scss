@@ -21,7 +21,7 @@ $desktop: 1116px;
     justify-content: center;
     width: 65rem;
     min-height: 150px;
-    margin: 90px auto auto;
+    margin: 67px auto auto;
     padding-bottom: 12px;
   }
 
@@ -114,6 +114,9 @@ $desktop: 1116px;
     width: 25px;
     height: 25px;
     cursor: pointer;
+    &:hover {
+      background-color: red;
+    }
   }
 }
 .btn-container {

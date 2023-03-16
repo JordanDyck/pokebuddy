@@ -1,6 +1,9 @@
 import Select from "react-select"
 import axios from "axios"
-import {useState, useEffect} from "react"
+import {useState, useEffect, useCallback} from "react"
+import {useDispatch} from "react-redux"
+
+import {setSearch} from "../store/slices/searchSlice"
 
 const options = [
   {value: 1, label: "Gen 1 (#1-151)"},
@@ -14,12 +17,13 @@ const options = [
   {value: 9, label: "Gen 9 (#906-1008)"},
 ]
 
-const GameVersion = ({setPokemonList}) => {
+const GameVersion = ({setPokemonList, pokemonList}) => {
   //sets the current generation *don't use this for anything else*
   const [generation, setGeneration] = useState(options[0])
-
   // the data from api.
   const [genData, setGenData] = useState([])
+
+  const dispatch = useDispatch()
 
   //fetches the generation & name of pokemon.
   useEffect(() => {
@@ -44,10 +48,19 @@ const GameVersion = ({setPokemonList}) => {
     }
   }, [generation, genData.id, setPokemonList])
 
-  const handleChoice = (selectedOption) => {
-    setGeneration(selectedOption)
-    console.log(selectedOption)
-  }
+  // displays the dropdown list of pokemon based on selected gen.
+  const handleChoice = useCallback(
+    (selectedOption) => {
+      setGeneration(selectedOption)
+      console.log("render 2")
+    },
+    [setGeneration]
+  )
+  // sets the first pokemon in selected gen as current pokemon.
+  useEffect(() => {
+    dispatch(setSearch(pokemonList[0]))
+  }, [handleChoice, dispatch, pokemonList])
+
   return (
     <div>
       <Select

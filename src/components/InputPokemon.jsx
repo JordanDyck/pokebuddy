@@ -11,7 +11,6 @@ import hisuianForms from "./Forms/HisuianForms.json"
 const InputPokemon = () => {
   const [pokemonList, setPokemonList] = useState([])
   const [searchForm, setSearchForm] = useState({value: "", label: ""})
-
   const search = useSelector((store) => store.search.value)
   const dispatch = useDispatch()
 
@@ -40,14 +39,33 @@ const InputPokemon = () => {
     }
   }, [hasAltForm])
 
+  // gets current index of pokemonList and displays next or prev pokemon in that list.
+  const getNext_prevPokemon = (num) => {
+    for (let i = 0; i < search.value; i++) {
+      if (
+        pokemonList[i]?.value === search.value &&
+        pokemonList[i + num] !== undefined
+      ) {
+        dispatch(
+          setSearch({
+            value: pokemonList[i + num]?.value,
+            label: pokemonList[i + num]?.label,
+          })
+        )
+      }
+    }
+  }
+
   return (
     <div className="search-container">
       <div className="search-bar-container">
         <Select
           id="search-bar"
           options={pokemonList}
-          placeholder={"select Pokemon"}
+          value={search}
           transition
+          filterOption={createFilter({ignoreCase: true})}
+          onChange={(value) => dispatch(setSearch(value))}
           components={{
             DropdownIndicator: () => null,
             IndicatorSeparator: () => null,
@@ -58,11 +76,15 @@ const InputPokemon = () => {
               border: "1px solid #a9a9a9",
             }),
           }}
-          filterOption={createFilter({ignoreCase: true})}
-          value={search}
-          onChange={(value) => dispatch(setSearch(value))}
         />
-        <GameVersion setPokemonList={setPokemonList} />
+        <GameVersion
+          setPokemonList={setPokemonList}
+          pokemonList={pokemonList}
+        />
+      </div>
+      <div className="prev-next-buttons">
+        <button onClick={() => getNext_prevPokemon(-1)}>{"<"} prev</button>
+        <button onClick={() => getNext_prevPokemon(1)}>next {">"}</button>
       </div>
       <div
         className="alt-btn-container"

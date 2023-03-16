@@ -2,12 +2,11 @@ $desktop: 1116px;
 
 .search-container {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   margin: auto;
   @media (min-width: $desktop) {
-    flex-direction: column;
+    align-items: center;
   }
 
   .search-bar-container {
@@ -43,6 +42,18 @@ $desktop: 1116px;
       border: 1.5px solid;
       border-radius: 15px;
       cursor: pointer;
+    }
+  }
+
+  .prev-next-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+
+    button {
+      font-size: 20px;
+      padding: 3px;
     }
   }
 }
