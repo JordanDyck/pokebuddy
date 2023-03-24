@@ -52,7 +52,6 @@ const GameVersion = ({setPokemonList, pokemonList}) => {
   const handleChoice = useCallback(
     (selectedOption) => {
       setGeneration(selectedOption)
-      console.log("render 2")
     },
     [setGeneration]
   )

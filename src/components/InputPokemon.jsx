@@ -40,11 +40,12 @@ const InputPokemon = () => {
   }, [hasAltForm])
 
   // gets current index of pokemonList and displays next or prev pokemon in that list.
+
   const getNext_prevPokemon = (num) => {
-    for (let i = 0; i < search.value; i++) {
+    for (let i = 0; i < search?.value; i++) {
       if (
-        pokemonList[i]?.value === search.value &&
-        pokemonList[i + num] !== undefined
+        pokemonList?.[i]?.value === search.value &&
+        pokemonList?.[i + num] !== undefined
       ) {
         dispatch(
           setSearch({
@@ -52,10 +53,18 @@ const InputPokemon = () => {
             label: pokemonList[i + num]?.label,
           })
         )
+        console.log(search)
       }
     }
   }
 
+  const canPrev_NextPokemon = (numModifier) => {
+    return pokemonList.some((pokemon, index) => {
+      if (pokemon.label === search?.label) {
+        return !!pokemonList?.[index + numModifier]
+      } else return false
+    })
+  }
   return (
     <div className="search-container">
       <div className="search-bar-container">
@@ -83,8 +92,22 @@ const InputPokemon = () => {
         />
       </div>
       <div className="prev-next-buttons">
-        <button onClick={() => getNext_prevPokemon(-1)}>{"<"} prev</button>
-        <button onClick={() => getNext_prevPokemon(1)}>next {">"}</button>
+        <button
+          onClick={() => getNext_prevPokemon(-1)}
+          style={{
+            visibility: canPrev_NextPokemon(-1) ? "visible" : "hidden",
+          }}
+        >
+          {"<"} prev
+        </button>
+        <button
+          onClick={() => getNext_prevPokemon(1)}
+          style={{
+            visibility: canPrev_NextPokemon(1) ? "visible" : "hidden",
+          }}
+        >
+          next {">"}
+        </button>
       </div>
       <div
         className="alt-btn-container"

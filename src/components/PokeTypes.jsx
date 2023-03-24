@@ -27,7 +27,7 @@ const PokeTypes = ({loading, setLoading}) => {
         })
         .catch(() => setLoading(false))
     }
-  }, [search, dispatch, setLoading, stats?.name])
+  }, [search?.value, dispatch, setLoading, stats?.name])
 
   return (
     <div className="stats-container">
@@ -46,7 +46,7 @@ const PokeTypes = ({loading, setLoading}) => {
           <PokeStats stats={stats} />
         </>
       ) : (
-        ""
+        <div>Loading...</div>
       )}
     </div>
   )
