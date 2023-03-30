@@ -19,7 +19,7 @@ const CurrentStrengths = () => {
     if (stats) {
       dispatch(setAttack(atkAdvantages(stats)))
     }
-  }, [stats])
+  }, [stats, dispatch])
   // displays current strength advantages
   return attack?.length ? (
     <>

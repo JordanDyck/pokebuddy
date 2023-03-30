@@ -15,7 +15,7 @@ const CurrentImmunities = () => {
     if (stats) {
       dispatch(setImmunity(immunities(stats)))
     }
-  }, [stats])
+  }, [stats, dispatch])
 
   return currentImmunities?.length ? (
     <>

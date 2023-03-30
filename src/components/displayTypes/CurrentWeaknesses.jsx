@@ -16,7 +16,7 @@ const CurrentWeaknesses = () => {
     if (stats) {
       dispatch(setWeakness(defWeaknesses(stats)))
     }
-  }, [stats])
+  }, [stats, dispatch])
 
   return weaknesses?.length ? (
     <>

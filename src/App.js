@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="content-wrapper">
       <Title />
-      <InputPokemon />
+      <InputPokemon loading={loading} />
       <PokeTypes loading={loading} setLoading={setLoading} />
       <Team loading={loading} />
     </div>

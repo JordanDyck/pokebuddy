@@ -1,5 +1,6 @@
 import {useSelector, useDispatch} from "react-redux"
 import {v4 as uuid} from "uuid"
+import {RiDeleteBin2Line} from "react-icons/ri"
 
 import {addTeamStat, removeTeamStat} from "../store/slices/teamSlice"
 import {setSearch} from "../store/slices/searchSlice"
@@ -29,7 +30,6 @@ const Team = ({loading}) => {
           </button>
         </div>
 
-        {/* displays each team member */}
         <div className="team">
           <div className="bg-label-container">
             <div className="bg-label">
@@ -39,6 +39,7 @@ const Team = ({loading}) => {
               <label>M</label>
             </div>
           </div>
+          {/* displays each team member */}
           {teamStats?.map(({name, id}, index) => (
             <div className="team-container" key={uuid()}>
               <div className="team-stat-container">
@@ -72,6 +73,18 @@ const Team = ({loading}) => {
                 src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}
                 alt={`${name}`}
                 value={id}
+                style={{
+                  // matches the background color to the pokemons types.
+                  background: `linear-gradient(314deg, ${
+                    TypeColor[teamStats[index].types?.[0]?.type?.name] + 99
+                  } 47%, ${
+                    teamStats[index].types?.[1]?.type?.name
+                      ? TypeColor[teamStats[index].types?.[1]?.type?.name] + 99
+                      : TypeColor[teamStats[index].types?.[0]?.type?.name] + 99
+                  } 81%)`,
+                  borderColor:
+                    TypeColor[teamStats[index].types?.[0]?.type?.name],
+                }}
                 onClick={() =>
                   // sets selected team member as current pokemon.
                   dispatch(
@@ -92,7 +105,7 @@ const Team = ({loading}) => {
                   className="delete-btn"
                   onClick={() => dispatch(removeTeamStat(id))}
                 >
-                  X
+                  <RiDeleteBin2Line />
                 </button>
               </div>
             </div>

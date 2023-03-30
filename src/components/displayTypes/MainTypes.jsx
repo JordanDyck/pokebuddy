@@ -16,7 +16,7 @@ const MainTypes = () => {
     if (stats) {
       dispatch(setTypes(currentTypes(stats)))
     }
-  }, [stats])
+  }, [stats, dispatch])
 
   return types ? (
     <div className="types">

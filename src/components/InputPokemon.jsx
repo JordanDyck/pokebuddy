@@ -1,14 +1,15 @@
+import axios from "axios"
 import {useState, useMemo, useEffect} from "react"
 import Select, {createFilter} from "react-select"
 import {useSelector, useDispatch} from "react-redux"
-import axios from "axios"
+import {GrNext, GrPrevious} from "react-icons/gr"
 
 import {setSearch} from "../store/slices/searchSlice"
 import GameVersion from "./GameVersion"
 import alolaForms from "./Forms/AlolaForms.json"
 import hisuianForms from "./Forms/HisuianForms.json"
 
-const InputPokemon = () => {
+const InputPokemon = ({loading}) => {
   const [pokemonList, setPokemonList] = useState([])
   const [searchForm, setSearchForm] = useState({value: "", label: ""})
   const search = useSelector((store) => store.search.value)
@@ -40,7 +41,6 @@ const InputPokemon = () => {
   }, [hasAltForm])
 
   // gets current index of pokemonList and displays next or prev pokemon in that list.
-
   const getNext_prevPokemon = (num) => {
     for (let i = 0; i < search?.value; i++) {
       if (
@@ -53,11 +53,11 @@ const InputPokemon = () => {
             label: pokemonList[i + num]?.label,
           })
         )
-        console.log(search)
       }
     }
   }
 
+  // if the next/prev pokemon in list exists, show next/prev button.
   const canPrev_NextPokemon = (numModifier) => {
     return pokemonList.some((pokemon, index) => {
       if (pokemon.label === search?.label) {
@@ -91,27 +91,29 @@ const InputPokemon = () => {
           pokemonList={pokemonList}
         />
       </div>
-      <div className="prev-next-buttons">
+      <div className="prev-next-buttons" key={loading ? 1 : 2}>
         <button
+          className="prev-btn"
           onClick={() => getNext_prevPokemon(-1)}
           style={{
-            visibility: canPrev_NextPokemon(-1) ? "visible" : "hidden",
+            display: canPrev_NextPokemon(-1) ? "initial" : "none",
           }}
         >
-          {"<"} prev
+          <GrPrevious /> Prev
         </button>
         <button
+          className="next-btn"
           onClick={() => getNext_prevPokemon(1)}
           style={{
-            visibility: canPrev_NextPokemon(1) ? "visible" : "hidden",
+            display: canPrev_NextPokemon(1) ? "initial" : "none",
           }}
         >
-          next {">"}
+          Next <GrNext />
         </button>
       </div>
       <div
         className="alt-btn-container"
-        style={{display: hasAltForm ? "" : "none"}}
+        style={{visibility: hasAltForm ? "visible" : "hidden"}}
       >
         <button
           className="alt-btn"

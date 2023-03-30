@@ -1,10 +1,10 @@
-$desktop: 1116px;
+$desktop: 1035px;
 
 .search-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: auto;
+  margin: 8px 0 auto;
   @media (min-width: $desktop) {
     align-items: center;
   }
@@ -35,13 +35,16 @@ $desktop: 1116px;
   }
   .alt-btn-container {
     margin: auto;
-    margin-top: 10px;
     .alt-btn {
       font-size: 20px;
       padding: 5px;
       border: 1.5px solid;
       border-radius: 15px;
       cursor: pointer;
+      &:hover {
+        background-color: #dddddd;
+        animation: color-fade 1s infinite;
+      }
     }
   }
 
@@ -50,10 +53,56 @@ $desktop: 1116px;
     justify-content: center;
     gap: 5px;
     margin-top: 5px;
+    @media (min-width: $desktop) {
+      animation: fade-in 1s ease-in;
+      position: relative;
+      top: 415px;
+    }
+
+    .next-btn {
+      @media (min-width: $desktop) {
+        position: absolute;
+        left: 100px;
+        &:hover {
+          background-color: #dddddd;
+        }
+      }
+    }
+    .prev-btn {
+      @media (min-width: $desktop) {
+        position: absolute;
+        right: 100px;
+        &:hover {
+          background-color: #dddddd;
+        }
+      }
+    }
+
+    svg {
+      vertical-align: text-top;
+      padding-top: 1px;
+    }
 
     button {
+      width: 85px;
+      height: 35px;
       font-size: 20px;
       padding: 3px;
+      border: 1px solid;
+      border-radius: 5px;
+      cursor: pointer;
     }
+  }
+}
+
+@keyframes color-fade {
+  0% {
+    box-shadow: 0px 0px 20px 2px rgba(255, 0, 0, 0);
+  }
+  50% {
+    box-shadow: 0px 0px 20px 2px rgba(255, 0, 0, 0.55);
+  }
+  100% {
+    box-shadow: 0px 0px 20px 2px rgba(255, 0, 0, 0);
   }
 }

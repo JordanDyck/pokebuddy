@@ -1,4 +1,4 @@
-$desktop: 1116px;
+$desktop: 1035px;
 
 .stats-container {
   display: flex;
@@ -39,8 +39,8 @@ $desktop: 1116px;
       border-radius: 25px;
       padding: 7px 7px;
       text-transform: capitalize;
-      animation: fade-in 1s ease-in;
       @media (min-width: $desktop) {
+        animation: fade-in 1s ease-in;
         margin-top: 22px;
         gap: 4px;
       }
@@ -129,6 +129,7 @@ $desktop: 1116px;
             .stat-number {
               padding: 0 5px 0 3px;
               font-size: 12px;
+              cursor: default;
 
               @media (min-width: $desktop) {
                 padding: 0 5px 0 5px;
@@ -148,9 +149,10 @@ $desktop: 1116px;
     border-radius: 40px;
     opacity: 0;
     box-shadow: 0 0 5px 5px #efefef inset;
-    animation: fade-in 0.8s 0.3s both;
+    animation: fade-in 0s 0s both;
 
     @media (min-width: $desktop) {
+      animation: fade-in 0.8s 0.3s both;
       // border & background colors are in TypeAdvantages
       border-radius: 5px 5px 5px 45px;
       box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
@@ -166,7 +168,6 @@ $desktop: 1116px;
       font-size: 20px;
 
       @media (min-width: $desktop) {
-        // border-radius: 15px;
         margin-bottom: 6px;
         padding-left: 10px;
         width: 281px;

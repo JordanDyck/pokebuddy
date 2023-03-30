@@ -1,4 +1,4 @@
-$desktop: 1116px;
+$desktop: 1035px;
 
 .team {
   position: relative;
@@ -22,7 +22,7 @@ $desktop: 1116px;
     width: 65rem;
     min-height: 150px;
     margin: 67px auto auto;
-    padding-bottom: 12px;
+    padding-top: 10px;
   }
 
   .bg-label-container {
@@ -60,7 +60,7 @@ $desktop: 1116px;
     flex-direction: column;
     margin-top: 30px;
     z-index: 2;
-    // margin-bottom: 17px;
+
     cursor: pointer;
 
     @media (min-width: $desktop) {
@@ -81,11 +81,13 @@ $desktop: 1116px;
       flex-wrap: wrap;
       justify-content: center;
       gap: 4px;
+      margin-bottom: 9px;
       text-transform: capitalize;
       @media (min-width: $desktop) {
         position: absolute;
         visibility: hidden;
-        bottom: 161px;
+        bottom: 191px;
+        margin-bottom: 0;
       }
       .team-stat {
         padding: 3px 12px;
@@ -104,18 +106,24 @@ $desktop: 1116px;
     .team-sprite {
       width: 125px;
       user-select: none;
+      border: 2px solid;
+      border-radius: 15px;
+      // background-color is in the team file
     }
   }
   .delete-btn {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    background-color: transparent;
     border-radius: 20px;
-    width: 25px;
-    height: 25px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     &:hover {
-      background-color: red;
+      color: red;
     }
   }
 }
@@ -124,11 +132,9 @@ $desktop: 1116px;
   justify-content: center;
   user-select: none;
   .add-to-team-btn {
-    width: 186px;
     animation: fade-in 1s ease-in;
-
+    width: 186px;
     margin: 15px 0 20px 0;
-
     font-size: 25px;
     text-align: center;
     text-decoration: none;
@@ -139,6 +145,9 @@ $desktop: 1116px;
     border-radius: 15px;
     box-shadow: 0 9px #999;
     cursor: pointer;
+    &:hover {
+      background-color: #57c55b;
+    }
     &:active {
       background-color: #3e8e41;
       box-shadow: 0 5px #666;
@@ -168,7 +177,7 @@ $desktop: 1116px;
     opacity: 0;
   }
   to {
-    bottom: 161px;
+    bottom: 191px;
     opacity: 100%;
   }
 }

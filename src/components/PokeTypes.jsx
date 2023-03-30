@@ -20,7 +20,7 @@ const PokeTypes = ({loading, setLoading}) => {
     setLoading(true)
     if (stats?.name !== search?.value) {
       axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${search.value}`)
+        .get(`https://pokeapi.co/api/v2/pokemon/${search?.value}`)
         .then((res) => {
           dispatch(setStat(res.data))
           setLoading(false)
