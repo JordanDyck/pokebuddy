@@ -37,7 +37,7 @@ const PokeTypes = ({loading, setLoading}) => {
             <img
               className="sprite"
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${stats.id}.png`}
-              alt=""
+              alt={stats.name}
             />
             <MainTypes />
           </div>
@@ -46,7 +46,7 @@ const PokeTypes = ({loading, setLoading}) => {
           <PokeStats stats={stats} />
         </>
       ) : (
-        <div>Loading...</div>
+        <div className="loading">Loading...</div>
       )}
     </div>
   )

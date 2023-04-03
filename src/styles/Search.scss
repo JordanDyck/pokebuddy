@@ -21,7 +21,7 @@ $desktop: 1035px;
       gap: 5px;
     }
 
-    #search-bar {
+    .search-bar {
       font-size: 25px;
       width: 300px;
       text-align: center;
@@ -39,7 +39,7 @@ $desktop: 1035px;
       font-size: 20px;
       padding: 5px;
       border: 1.5px solid;
-      border-radius: 15px;
+      border-radius: 4px 15px;
       cursor: pointer;
       &:hover {
         background-color: #dddddd;
@@ -60,20 +60,24 @@ $desktop: 1035px;
     }
 
     .next-btn {
+      border-radius: 23px 3px;
+      background-color: #dfdfdf;
       @media (min-width: $desktop) {
         position: absolute;
         left: 100px;
         &:hover {
-          background-color: #dddddd;
+          background-color: #c3c2c2;
         }
       }
     }
     .prev-btn {
+      border-radius: 3px 23px;
+      background-color: #dfdfdf;
       @media (min-width: $desktop) {
         position: absolute;
         right: 100px;
         &:hover {
-          background-color: #dddddd;
+          background-color: #c3c2c2;
         }
       }
     }
@@ -89,7 +93,6 @@ $desktop: 1035px;
       font-size: 20px;
       padding: 3px;
       border: 1px solid;
-      border-radius: 5px;
       cursor: pointer;
     }
   }

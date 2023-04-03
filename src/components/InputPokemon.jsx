@@ -30,6 +30,7 @@ const InputPokemon = ({loading}) => {
     }
   }, [search])
 
+  // gets alt forms.
   useEffect(() => {
     if (hasAltForm) {
       axios
@@ -69,7 +70,7 @@ const InputPokemon = ({loading}) => {
     <div className="search-container">
       <div className="search-bar-container">
         <Select
-          id="search-bar"
+          className="search-bar"
           options={pokemonList}
           value={search}
           transition

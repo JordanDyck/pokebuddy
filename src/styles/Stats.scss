@@ -59,6 +59,7 @@ $desktop: 1035px;
     justify-content: center;
     padding-right: 25px;
     height: 208px;
+    width: 283px;
     gap: 2px;
     background-color: #bdbdbd;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 9% 100%, 0 92%);
@@ -99,6 +100,10 @@ $desktop: 1035px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
+      width: 169px;
+      @media (min-width: $desktop) {
+        width: auto;
+      }
 
       .stat {
         display: flex;
@@ -144,21 +149,19 @@ $desktop: 1035px;
   .strengths_weaknesses-container {
     display: flex;
     flex-direction: column;
-    max-width: 290px;
+    width: 273px;
     padding: 25px 15px;
-    border-radius: 40px;
-    opacity: 0;
-    box-shadow: 0 0 5px 5px #efefef inset;
+    border-radius: 5px 5px 5px 45px;
+    box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
+    border: 4px solid;
     animation: fade-in 0s 0s both;
 
     @media (min-width: $desktop) {
       animation: fade-in 0.8s 0.3s both;
+      width: 290px;
       // border & background colors are in TypeAdvantages
-      border-radius: 5px 5px 5px 45px;
-      box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
       margin: 0 30px 0 18px;
       padding: 12px 18px;
-      border: 4px solid;
       order: 1;
     }
 
