@@ -160,6 +160,10 @@ $desktop: 1035px;
       box-shadow: 0 5px #666;
     }
   }
+  svg {
+    vertical-align: text-top;
+    padding-top: 2px;
+  }
 }
 
 @keyframes fade-in {

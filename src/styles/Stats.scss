@@ -58,7 +58,7 @@ $desktop: 1035px;
     flex-direction: row;
     justify-content: center;
     padding-right: 25px;
-    height: 208px;
+    height: 240px;
     width: 283px;
     gap: 2px;
     background-color: #bdbdbd;
@@ -84,11 +84,10 @@ $desktop: 1035px;
       justify-content: space-evenly;
       .stat-label {
         display: flex;
-        white-space: nowrap;
-        align-items: center;
         margin-left: 24px;
         width: 88px;
         font-size: 15px;
+        border-bottom: 1px solid;
 
         @media (min-width: $desktop) {
           font-size: 19px;
@@ -99,7 +98,6 @@ $desktop: 1035px;
     .bar-wrapper {
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
       width: 169px;
       @media (min-width: $desktop) {
         width: auto;
@@ -107,6 +105,10 @@ $desktop: 1035px;
 
       .stat {
         display: flex;
+        padding-top: 8px;
+        @media (min-width: $desktop) {
+          padding-top: 10px;
+        }
 
         .max-bar {
           width: 100%;
@@ -155,6 +157,7 @@ $desktop: 1035px;
     box-shadow: 5px 4px 9px 5px rgba(0, 0, 0, 0.28);
     border: 4px solid;
     animation: fade-in 0s 0s both;
+    margin: 20px 0;
 
     @media (min-width: $desktop) {
       animation: fade-in 0.8s 0.3s both;

@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from "react-redux"
 import {v4 as uuid} from "uuid"
 import {RiDeleteBin2Line} from "react-icons/ri"
+import {MdCatchingPokemon} from "react-icons/md"
 
 import {addTeamStat, removeTeamStat} from "../store/slices/teamSlice"
 import {setSearch} from "../store/slices/searchSlice"
@@ -26,7 +27,7 @@ const Team = ({loading}) => {
               dispatch(addTeamStat(currentStats))
             }}
           >
-            Add to team
+            Add to team <MdCatchingPokemon />
           </button>
         </div>
 

@@ -92,26 +92,31 @@ const InputPokemon = ({loading}) => {
           pokemonList={pokemonList}
         />
       </div>
-      <div className="prev-next-buttons" key={loading ? 1 : 2}>
-        <button
-          className="prev-btn"
-          onClick={() => getNext_prevPokemon(-1)}
-          style={{
-            display: canPrev_NextPokemon(-1) ? "initial" : "none",
-          }}
-        >
-          <GrPrevious /> Prev
-        </button>
-        <button
-          className="next-btn"
-          onClick={() => getNext_prevPokemon(1)}
-          style={{
-            display: canPrev_NextPokemon(1) ? "initial" : "none",
-          }}
-        >
-          Next <GrNext />
-        </button>
-      </div>
+      {!loading ? (
+        <div className="prev-next-buttons">
+          <button
+            className="prev-btn"
+            onClick={() => getNext_prevPokemon(-1)}
+            style={{
+              display: canPrev_NextPokemon(-1) ? "initial" : "none",
+            }}
+          >
+            <GrPrevious /> Prev
+          </button>
+          <button
+            className="next-btn"
+            onClick={() => getNext_prevPokemon(1)}
+            style={{
+              display: canPrev_NextPokemon(1) ? "initial" : "none",
+            }}
+          >
+            Next <GrNext />
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+
       <div
         className="alt-btn-container"
         style={{visibility: hasAltForm ? "visible" : "hidden"}}
