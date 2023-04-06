@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pokebuddy/static/css/main.49fa51d4.css",
+    "main.js": "/pokebuddy/static/js/main.4f6fc2e9.js",
+    "index.html": "/pokebuddy/index.html",
+    "main.49fa51d4.css.map": "/pokebuddy/static/css/main.49fa51d4.css.map",
+    "main.4f6fc2e9.js.map": "/pokebuddy/static/js/main.4f6fc2e9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49fa51d4.css",
+    "static/js/main.4f6fc2e9.js"
+  ]
+}
